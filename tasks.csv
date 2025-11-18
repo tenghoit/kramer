@@ -1,3 +1,24 @@
 task,person,date,status
-slide text extraction, tenghoit, 2025-11-18, not started
-chunking, tenghoit, 2025-11-18, not started
+text conversion (pdf, pptx) , tenghoit, 2025-11-18, not started
+
+(Phase 1) get test data, nathan,
+
+(Optional/Undecided) Voice Transcripting and handwritten to txt translator,
+
+embeddding,
+
+generation,
+
+chromadb set up, tenghoit,
+
+test cli, nathan,
+
+(Phase 2) note related chat,
+
+set up RAG system,
+
+(optional/ Phase 3) Study guide/ test maker,
+
+Final Interface work,
+
+(Optional) running site,
