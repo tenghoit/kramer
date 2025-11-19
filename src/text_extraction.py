@@ -1,6 +1,6 @@
 from pypdf import PdfReader, errors
 from pathlib import Path
-
+import re
 
 def pdf_to_text(file_path: Path) -> str:
     try:
