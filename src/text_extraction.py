@@ -1,6 +1,8 @@
 from pypdf import PdfReader, errors
+from docx import Document
 from pathlib import Path
 import re
+
 
 def pdf_to_text(file_path: Path) -> str:
     try:
@@ -11,3 +13,45 @@ def pdf_to_text(file_path: Path) -> str:
         return text 
     except errors.PyPdfError as e:
         raise ValueError(f"Failed to read PDF: {file_path}") from e
+
+
+def docx_to_text(file_path: Path) -> str:
+    try:
+        document = Document(str(file_path))
+        return "\n".join(paragraph.text for paragraph in document.paragraphs)
+    except Exception as e:
+        raise ValueError(f"Failed to read DOCX: {file_path}") from e
+
+
+def extract_text(file_path: str | Path) -> str:
+    """
+    Extract text from a PDF or DOCX file.
+    """
+    
+    file_path = Path(file_path.strip()) if isinstance(file_path, str) else file_path
+
+    if not file_path.is_file():
+        raise FileNotFoundError(f"Invalid file path: {file_path}")
+
+    suffix = file_path.suffix.lower()
+    if suffix == ".txt":
+        return file_path.read_text()        
+    elif suffix == ".pdf":
+        return pdf_to_text(file_path)
+    elif suffix == ".docx":
+        return docx_to_text(file_path)
+    else:
+        raise ValueError(f"Unsupported file type: {suffix}")
+    
+
+def main():
+    import sys
+    if len(sys.argv) != 2:
+        print(f"Usage: python3 {sys.argv[0]}.py <file_path>")
+        sys.exit(1)
+    
+    print(extract_text(sys.argv[1]))
+
+
+if __name__ == "__main__": 
+    main()

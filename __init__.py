@@ -13,8 +13,8 @@ def setup_logging(log_name: str | None = None) -> None:
     log_path.parent.mkdir(parents=True, exist_ok=True)
     logging.basicConfig(
         level=logging.INFO,
-        format="%(levelname)s:%(name)s:%(funcName)s: %(message)s",
-        datefmt="%Y-%m-%d %H:%M:%S",
+        format="%(asctime)s:%(levelname)s:%(name)s:%(funcName)s: %(message)s",
+        datefmt="%H:%M:%S",
         handlers=[
             # logging.FileHandler(log_path), 
             logging.StreamHandler() # log to console

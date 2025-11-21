@@ -2,9 +2,11 @@ import chromadb
 import logging
 import logging
 from chromadb.utils.embedding_functions import OllamaEmbeddingFunction # type: ignore
+from text_extraction import extract_text
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
+client = chromadb.PersistentClient(path="/") # type: ignore
 
 
 def get_collection(name: str) -> chromadb.Collection | None: # type: ignore
@@ -48,8 +50,35 @@ def delete_collection(name: str):
     return
 
 
-def get_notes(class_code: str, topic: str):
-    notes = get_collection("notes")
+def clear_collection(collection_name: str):
+    delete_collection(collection_name)
+    create_collection(collection_name)
+
+
+def get_next_id(collection_name: str) -> int:
+    collection = get_collection(collection_name)
+    ids = collection.get(limit=collection.count())["ids"]
+    if not ids: return 1 # if empty
+    last_id = ids[-1] # get() returns oldest to latest
+    next_id = int(last_id) + 1
+    return next_id
+
+
+def add_note(class_code: str, topic: str, file_path):
+    notes: chromadb.Collection = get_collection("notes") # type: ignore
+    document: str = extract_text(file_path)
+    metadata = {"class_code": class_code, "topic": topic}
+    notes.add(
+        ids=[get_next_id("notes")],
+        documents=[document],
+        metadatas=[metadata]
+    )
+    logger.debug(f"{class_code} {topic} notes added.")
+    return
+
+
+def get_note(class_code: str, topic: str):
+    notes: chromadb.Collection = get_collection("notes") # type: ignore
     metadata = {
         "$and": [
             {"class_code": class_code},
