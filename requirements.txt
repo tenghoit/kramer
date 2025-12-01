@@ -3,3 +3,4 @@ ollama
 pypdf
 chromadb
 python-docx
+python-pptx
