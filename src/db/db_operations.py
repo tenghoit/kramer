@@ -6,6 +6,7 @@ from text_extraction import extract_text
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
+
 client = chromadb.PersistentClient(path="/") # type: ignore
 
 
@@ -50,13 +51,13 @@ def delete_collection(name: str):
     return
 
 
-def clear_collection(collection_name: str):
+def clear_collection(collection_name: str) -> chromadb.Collection: # type: ignore
     delete_collection(collection_name)
-    create_collection(collection_name)
+    return create_collection(collection_name)
 
 
 def get_next_id(collection_name: str) -> int:
-    collection = get_collection(collection_name)
+    collection: chromadb.Collection = get_collection(collection_name) # type: ignore
     ids = collection.get(limit=collection.count())["ids"]
     if not ids: return 1 # if empty
     last_id = ids[-1] # get() returns oldest to latest
@@ -89,5 +90,17 @@ def get_note(class_code: str, topic: str):
         query_embeddings=[],
         where=metadata
     )
+
+
+def flatten_results(results: chromadb.QueryResult | chromadb.GetResult) -> list:  # type: ignore
+    keys = results.keys()
+    output = []
+    for i in range(len(results[keys[0]])):
+        item = dict()
+        for key in keys:
+            item[key] = results[key][i]
+        output.append(item)
+    return output
+
     
 
