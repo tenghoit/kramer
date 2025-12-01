@@ -1,4 +1,5 @@
 from pypdf import PdfReader, errors
+from pptx import Presentation
 from docx import Document
 from pathlib import Path
 import re
@@ -23,7 +24,7 @@ def docx_to_text(file_path: Path) -> str:
         raise ValueError(f"Failed to read DOCX: {file_path}") from e
 
 
-def extract_text(file_path: str | Path) -> str:
+def extract_text(file_path: str | Path):
     """
     Extract text from a PDF or DOCX file.
     """
@@ -40,8 +41,26 @@ def extract_text(file_path: str | Path) -> str:
         return pdf_to_text(file_path)
     elif suffix == ".docx":
         return docx_to_text(file_path)
+    elif suffix == ".pptx":
+        return pptx_to_texts(file_path)
     else:
         raise ValueError(f"Unsupported file type: {suffix}")
+    
+def pptx_to_texts(file_path) -> list[str]: 
+    prs = Presentation(file_path)
+    slide_texts = []
+
+    for slide in prs.slides:
+        slide_text = ""
+        for shape in slide.shapes:
+            if not shape.has_text_frame:continue
+            for paragraph in shape.text_frame.paragraphs:
+                for run in paragraph.runs:
+                    # text_runs.append(run.text)
+                    slide_text += run.text
+        slide_texts.append(slide_text)
+
+    return slide_texts
     
 
 def main():
@@ -50,7 +69,10 @@ def main():
         print(f"Usage: python3 {sys.argv[0]}.py <file_path>")
         sys.exit(1)
     
-    print(extract_text(sys.argv[1]))
+    # print(extract_text(sys.argv[1]))
+
+    for text in extract_text(sys.argv[1]):
+        print(f"{text}\n<page-break>")
 
 
 if __name__ == "__main__": 
