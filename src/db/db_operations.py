@@ -1,7 +1,7 @@
 import chromadb
 import logging
 import logging
-from chromadb.utils.embedding_functions import OllamaEmbeddingFunction # type: ignore
+from chromadb.utils.embedding_functions import OllamaEmbeddingFunction 
 from src.text_extraction import extract_text
 from pathlib import Path
 import src.setup_logging
@@ -60,7 +60,8 @@ def clear_collection(collection_name: str) -> chromadb.Collection:
 
 
 def get_next_id(collection_name: str) -> str:
-    collection = get_collection(collection_name) 
+    collection = get_collection(collection_name)
+    if collection is None: raise ValueError(f"Can't get next id of nonexisting collection") 
     ids = collection.get(limit=collection.count())["ids"]
     if not ids: return "1" # if empty
     last_id = ids[-1] # get() returns oldest to latest
@@ -117,6 +118,11 @@ def flatten_results(results: chromadb.QueryResult | chromadb.GetResult) -> list:
         output.append(item)
     return output
 
+def main():
+    collections = client.list_collections()
+    for c in collections: print(c.name)
 
+if __name__ == "__main__":
+    main()
 
 

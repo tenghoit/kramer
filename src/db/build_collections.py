@@ -1,4 +1,4 @@
-from src.db.db_operations import add_lecture, create_collection
+from src.db.db_operations import add_lecture, create_collection, clear_collection
 from src.text_extraction import extract_text
 import sys
 from pathlib import Path
@@ -10,14 +10,15 @@ def main():
     # if len(sys.argv) != 2:
     #     print(f"Usage: python3 {sys.argv[0]}.py <file_path>")
     #     sys.exit(1)
-
-
-    pure_file_path = Path("/Users/tenghoitkouch/Programming/kramer/data/LLM-Assisted Data Extraction.pptx")
+    
+    data_dir = Path(__file__).resolve().parents[2] / "data"
+    file_name = "LLM-Assisted Data Extraction.pptx"
+    file_path = data_dir / file_name
     topic = "data extraction"
 
-    create_collection("lectures")
+    clear_collection("lectures")
 
-    for page, text in enumerate(extract_text(pure_file_path)):
+    for page, text in enumerate(extract_text(file_path)):
         add_lecture(class_code, topic, text, page)
 
 
