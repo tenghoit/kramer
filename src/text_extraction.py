@@ -3,7 +3,8 @@ from pptx import Presentation
 from docx import Document
 from pathlib import Path
 import re
-
+import sys
+import src.setup_logging
 
 def pdf_to_text(file_path: Path) -> str:
     try:
@@ -64,7 +65,7 @@ def pptx_to_texts(file_path) -> list[str]:
     
 
 def main():
-    import sys
+    
     if len(sys.argv) != 2:
         print(f"Usage: python3 {sys.argv[0]}.py <file_path>")
         sys.exit(1)

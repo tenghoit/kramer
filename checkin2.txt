@@ -1,0 +1,29 @@
+Progress so far
+Briefly say which milestones from your Check-In 1 plan you have completed.
+Note anything major that changed (for example, new model, reduced scope).
+Plan for the final week (Dec 1–5)
+List 3–5 updated milestones with date/time for this last week.
+Make sure your plan includes:
+
+A clear deadline to finish all LLM runs/evals,
+A deadline to finish your written report,
+A deadline to finalize and verify code/data upload before Friday 12/5 at 4:00 PM.
+
+
+
+progress so far
+ - basic db ops
+ - cli outline
+ - repo created
+ - sample lecture slides gathered
+ - 
+
+Plans
+ - finish cli
+ - embedding sample lectures
+ - find or create sample notes
+ - 
+
+deadlines
+- llm evaluations on Wed 
+- write report Thursday
