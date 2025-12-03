@@ -34,10 +34,7 @@ def create_collection(name: str, model: str = "qwen3-embedding:8b") -> chromadb.
     logger.debug(f"Creating collection: {name}")
     collection = client.create_collection(
         name=name,
-        embedding_function=OllamaEmbeddingFunction(
-            url="http://localhost:11434",
-            model_name=model,
-        ),
+        embedding_function=OllamaEmbeddingFunction(model_name=model), # type: ignore
         configuration={"hnsw": {"space": "cosine"}}
     )
     logger.debug(f"Collection created: {name}")
@@ -61,7 +58,7 @@ def clear_collection(collection_name: str) -> chromadb.Collection:
 
 def get_next_id(collection_name: str) -> str:
     collection = get_collection(collection_name)
-    if collection is None: raise ValueError(f"Can't get next id of nonexisting collection") 
+    if collection is None: raise ValueError(f"Nonexisting collection") 
     ids = collection.get(limit=collection.count())["ids"]
     if not ids: return "1" # if empty
     last_id = ids[-1] # get() returns oldest to latest
@@ -118,9 +115,11 @@ def flatten_results(results: chromadb.QueryResult | chromadb.GetResult) -> list:
         output.append(item)
     return output
 
+
 def main():
     collections = client.list_collections()
     for c in collections: print(c.name)
+
 
 if __name__ == "__main__":
     main()
