@@ -59,6 +59,7 @@ def pptx_to_texts(file_path) -> list[str]:
                 for run in paragraph.runs:
                     # text_runs.append(run.text)
                     slide_text += run.text
+        
         slide_texts.append(slide_text)
 
     return slide_texts
@@ -66,14 +67,15 @@ def pptx_to_texts(file_path) -> list[str]:
 
 def main():
     
-    if len(sys.argv) != 2:
-        print(f"Usage: python3 {sys.argv[0]}.py <file_path>")
-        sys.exit(1)
+    # if len(sys.argv) != 2:
+    #     print(f"Usage: python3 {sys.argv[0]}.py <file_path>")
+    #     sys.exit(1)
     
     # print(extract_text(sys.argv[1]))
+    file_path = Path("/home/tenghoit.kouch/Documents/kramer/data/Course Conclusion.pptx")
 
-    for text in extract_text(sys.argv[1]):
-        print(f"{text}\n<page-break>")
+    for text in extract_text(file_path):
+        print(f"{text}\n")
 
 
 if __name__ == "__main__": 

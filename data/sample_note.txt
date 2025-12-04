@@ -1,0 +1,79 @@
+**DSC 360 – Unit 9: Course Conclusion
+Where AI-Powered Applications Are Heading (2025 → 2028)**
+Class Logistics
+Today: Conclusion of conceptual part of the course
+Paper Test 2: Wednesday (review guide + essay questions on Moodle)
+Final Project:
+Check-In 1 (SMART Milestones) — deadline extended to midnight
+Check-In 2 (Progress vs. Plan) — due Friday
+Real, working LLM application required (not just design/vibes)
+Score >30 requires: functioning LLM-based app
+Worth a full letter grade
+1. What We Learned This Semester
+Technical Concepts
+Neural networks, embeddings, transformers, context windows
+Semantic search: similarity measures + embedding spaces
+RAG pipelines: retrieve → ground → generate → evaluate
+Advanced retrieval: HyDE, Doc2Query, hybrid search
+Structured extraction: JSON Schemas, tables, exact match formats
+Safe NL → SQL: roles, validators, and injection guardrails
+Agents as plan–act–check loops over tools
+Deployment tradeoffs: local, hosted, hybrid; cost, latency, safety
+Practical Skills
+Thinking in systems, not demos
+Handling messy data + real APIs
+Designing experiments from vague ideas
+Debugging LLM workflows (retrieval, prompting, evaluation)
+Using retrieval + evidence responsibly
+Adding guardrails for safety + reliability
+Explaining/communicating system behavior clearly
+2. Why AI Apps Matter (Right Now)
+Major market cap is tied to AI capabilities + expectations
+Companies rushing to release copilots / AI features
+Everyone has access to models — few can build reliable systems
+Real advantage = thinking in pipelines, retrieval, evaluation, guardrails
+3. Where AI Apps Are Heading (2025 → 2028)
+Trend 1: Retrieval-First, Data-Centric Architectures
+Shift from “bigger models” → “better retrieval”
+Indexes, metadata, schemas, permissions = core infra
+RAG becomes the default query layer for org data
+Data quality matters more than model size
+Value moves toward data engineering + data governance
+Trend 2: Agentic AI + Orchestration Layers
+Agents mature from hype → practical workflow components
+Multi-agent systems running behind the scenes
+Orchestration coordinates retrieval, tools, planning
+2023 hype: “AutoGPT will automate everything”
+2026 reality: task-specific agents (invoice-matching, triage, routing)
+Trend 3: LLMOps + Self-Healing Pipelines
+Better tools for tracing prompts, cost, failures
+Continuous evaluation + regression tests for RAG
+Pipelines detect drift, anomalies, and auto-patch
+Early forms of self-healing AI systems
+Trend 4: Small, Open, On-Device Models
+Rise of SLMs/SMMs (small language/medium models)
+Cheap, fast, privacy-native, often “good enough”
+Increased use of on-device inference (phones, laptops)
+Future systems = mixture of large + small + retrieval
+Trend 5: Old Ideas Returning
+Neural nets died out twice before → old ideas cycle back
+LLMs are weak at planning and logic
+Hybrid systems return: model proposes → planner/verifier checks
+Formal verification revived for code generation + safety-critical tasks
+4. DSC 360 in 2028: Likely Changes
+Multi-agent workflows taught by default
+More evaluation, logging, LLMOps content
+Heavy use of small/open models on local hardware
+Less focus on “What is RAG?” → more advanced retrieval techniques
+More formal safety/correctness checks
+5. What You Can Honestly Claim You Know
+Built an end-to-end LLM-powered application
+Worked with APIs, JSON, configs, evals, guardrails
+Designed prompts + retrieval pipelines for real tasks
+Considered safety, failure modes, and evaluation rigorously
+Delivered a multi-component project with real constraints
+6. Final Thoughts
+Concepts last; APIs change.
+Retrieval, evaluation, and safety will remain core pillars.
+The “slog” of debugging shows you can manage complexity.
+Stay curious, skeptical, and experimental — that’s the real skill.

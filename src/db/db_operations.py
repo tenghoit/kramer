@@ -5,12 +5,24 @@ from chromadb.utils.embedding_functions import OllamaEmbeddingFunction
 from src.text_extraction import extract_text
 from pathlib import Path
 import src.setup_logging
+from numpy import dot
+from numpy.linalg import norm
+
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
 chromadb_dir = Path(__file__).resolve().parent / "chromadb"
 client = chromadb.PersistentClient(path=chromadb_dir) 
+
+
+class Result:
+    def __init__(self, id: str, embedding: list, document: str, metadata: dict, distance: float | None = None) -> None:
+        self.id = id
+        self.embedding = embedding
+        self.document = document
+        self.metadata = metadata
+        self.distance = distance
 
 
 def get_collection(name: str) -> chromadb.Collection | None:
@@ -75,12 +87,28 @@ def add_lecture(class_code: str, topic: str, text: str, page: int):
         metadatas=[metadata]
     )
     logger.debug(f"{class_code} {topic} page {page} lecture added.")
-    
 
 
-def add_note(class_code: str, topic: str, file_path):
+def get_lectures(class_code: str, topic: str) -> list[Result]:
+    lectures: chromadb.Collection = get_collection("lectures") # type: ignore
+    metadata = {
+        "$and": [
+            {"class_code": class_code},
+            {"topic": topic}
+        ]
+    }
+    result = lectures.get(
+        where=metadata,
+        limit=lectures.count(),
+        include=["metadatas", "documents", "embeddings"]
+    )
+    flat_result = flatten_get_result(result)
+    return flat_result
+
+
+def add_note(class_code: str, topic: str, text: str):
     notes: chromadb.Collection = get_collection("notes") # type: ignore
-    document: str = extract_text(file_path)
+    document: str = text
     metadata = {"class_code": class_code, "topic": topic}
     notes.add(
         ids=[get_next_id("notes")],
@@ -91,7 +119,7 @@ def add_note(class_code: str, topic: str, file_path):
     return
 
 
-def get_note(class_code: str, topic: str):
+def get_note(class_code: str, topic: str) -> Result:
     notes: chromadb.Collection = get_collection("notes") # type: ignore
     metadata = {
         "$and": [
@@ -99,26 +127,60 @@ def get_note(class_code: str, topic: str):
             {"topic": topic}
         ]
     }
-    results = notes.query(
-        query_embeddings=[],
-        where=metadata
+    result = notes.get(
+        where=metadata,
+        limit=notes.count(),
+        include=["metadatas", "documents", "embeddings"]
     )
+    flat_result = flatten_get_result(result)
+    return flat_result[0]
 
 
-def flatten_results(results: chromadb.QueryResult | chromadb.GetResult) -> list:  # type: ignore
-    keys = results.keys()
+def flatten_get_result(result: chromadb.GetResult) -> list[Result]:  # type: ignore
     output = []
-    for i in range(len(results[keys[0]])):
-        item = dict()
-        for key in keys:
-            item[key] = results[key][i]
+    for i in range(len(result["ids"])):
+        item = Result(
+            id=result["ids"][i],
+            embedding=result["embeddings"][i],
+            document=result["documents"][i],
+            metadata=result["metadatas"][i],
+        )
         output.append(item)
     return output
 
 
+def cmp_note_lecture(class_code: str, topic: str):
+    relevant_lectures = get_lectures(class_code, topic)
+    lecture_embeddings = [item.embedding for item in relevant_lectures]
+
+    relevant_note = get_note(class_code, topic)
+    notes: chromadb.Collection = get_collection("notes") # type: ignore
+    
+    result = notes.query(
+        query_embeddings=lecture_embeddings,
+        ids=[relevant_note.id]
+    )
+
+    threshold = 0.5
+    missing_lectures = []
+
+    def cosine_distance(a, b):
+        return 1 - dot(a, b) / (norm(a) * norm(b))
+
+    for i, lecture in enumerate(relevant_lectures):
+        distance = cosine_distance(lecture.embedding, relevant_note.embedding)
+        if distance < threshold:
+            missing_lectures.append(lecture)
+
+    return missing_lectures
+    
+
 def main():
     collections = client.list_collections()
     for c in collections: print(c.name)
+    for item in get_lectures("dsc360", "data extraction"):
+        print(f"{item.id} | {item.metadata} | {item.document}")
+
 
 
 if __name__ == "__main__":
