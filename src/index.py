@@ -15,6 +15,7 @@ db_dir = Path('db')
 notes_path = db_dir / "notes.json"
 lectures_path = db_dir / "lectures.json"
 
+
 def normalize(vector):
     norm = np.linalg.norm(vector)
     if norm > 0:
@@ -37,18 +38,22 @@ def get_notes() -> list[dict]:
 
 def add_note(class_code: str, topic: str, text: str):
     notes = get_notes()
+    keywords = get_keywords(text)
+    embedding_text = "; ".join(keywords)
+
     item = {
         "class_code": class_code,
         "topic": topic,
         "text": text,
-        "embedding": get_embedding(text)
+        "keywords": keywords,
+        "embedding": get_embedding(embedding_text)
     }
     notes.append(item)
     with open(notes_path, "w") as f:
         json.dump(notes, f, indent=4)
 
 
-def get_note(class_code: str, topic: str) -> dict | None:
+def query_notes(class_code: str, topic: str) -> dict | None:
     notes = get_notes()
     for note in notes:
         if note["class_code"] == class_code and note["topic"] == topic:
@@ -88,7 +93,7 @@ def get_keywords(text: str, model: str = "gemma3:12b") -> list[str]:
         format=Keywords.model_json_schema(),
         options={"temperature": 0}
     )
-    content = result.message.content or ''
+    content = result["message"]["content"]
     return Keywords.model_validate_json(content).keywords
 
 
@@ -115,7 +120,46 @@ def add_lecture(class_code: str, topic: str, page: int, text: str):
     lectures.append(item)
     with open(lectures_path, "w") as f:
         json.dump(lectures, f, indent=4)
+
+
+def query_lectures(class_code: str, topic: str) -> list[dict]
+    lectures = get_lectures()
+    output = []
+    for lecture in lectures:
+        if lecture["class_code"] == class_code and lecture["topic"] == topic:
+            output.append(lecture)
+    return output
     
+
+def get_cosine_similarity(vec1: list[float], vec2: list[float]) -> float:
+    v1 = np.array(vec1, dtype=float)
+    v2 = np.array(vec2, dtype=float)
+
+    dot = np.dot(v1, v2)
+    norm = np.linalg.norm(v1) * np.linalg.norm(v2)
+
+    if norm == 0:
+        return 0.0
+
+    return float(dot / norm)
+
+
+def cmp(class_code: str, topic: str) -> list[dict]:
+    note = query_notes(class_code, topic)
+    lectures = query_lectures(class_code, topic)
+
+    threshold = 0.75
+    missing_lectures = []
+
+    for lecture in lectures:
+        cosine_similarity = get_cosine_similarity(note["embedding"], lecture["embedding"])
+        if cosine_similarity < threshold:
+            missing_lectures.append(missing_lectures)
+
+    return missing_lectures
+
+
+
 
 
 
