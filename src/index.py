@@ -171,6 +171,7 @@ def cmp(class_code: str, topic: str) -> list[dict]:
 
     for lecture in lectures:
         cosine_similarity = get_cosine_similarity(note["embedding"], lecture["embedding"])
+        logger.debug(f"{cosine_similarity}")
         if cosine_similarity < threshold:
             missing_lectures.append(missing_lectures)
 
@@ -187,16 +188,21 @@ def main():
     lecture_name = "Course Conclusion.pptx"
     lecture_path = data_dir / lecture_name
 
-    clear_db()
-    for page, text in enumerate(extract_text(lecture_path)):
-        if text == "": continue
-        print(text)
-        add_lecture(class_code, topic, page, text)
+    # clear_db()
+    # for page, text in enumerate(extract_text(lecture_path)):
+    #     if text == "": continue
+    #     print(text)
+    #     add_lecture(class_code, topic, page, text)
         
 
-    lectures = get_lectures()
-    print(f"# lectures: {len(lectures)}")
+    # lectures = get_lectures()
+    # print(f"# lectures: {len(lectures)}")
 
+    note_path = data_dir / "sample_note.txt"
+    add_note(class_code, topic, extract_text(note_path))
+
+    missing = cmp(class_code, topic)
+    logger.debug(f"len missing: {len(missing)}")
 
 
 
