@@ -4,7 +4,7 @@ from docx import Document
 from pathlib import Path
 import re
 import sys
-import src.setup_logging
+import setup_logging
 
 def pdf_to_text(file_path: Path) -> str:
     try:

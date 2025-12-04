@@ -6,6 +6,7 @@ from pathlib import Path
 import numpy as np
 import json
 from pydantic import BaseModel
+from text_extraction import extract_text
 
 
 logger = logging.getLogger(__name__)
@@ -29,6 +30,21 @@ def get_embedding(text: str, model: str = "qwen3-embedding:8b"):
     vector = np.array(embedding, dtype=float)
     return normalize(vector)
 
+
+def clear_notes():
+    notes_path.write_text("[]")
+    logger.debug(f"notes cleared")
+
+
+def clear_lectures():
+    lectures_path.write_text("[]")
+    logger.debug(f"lectures cleared")
+
+
+def clear_db():
+    clear_notes()
+    clear_lectures()
+    
 
 def get_notes() -> list[dict]:
     with open(notes_path, "r") as f:
@@ -94,7 +110,9 @@ def get_keywords(text: str, model: str = "gemma3:12b") -> list[str]:
         options={"temperature": 0}
     )
     content = result["message"]["content"]
-    return Keywords.model_validate_json(content).keywords
+    keywords = Keywords.model_validate_json(content).keywords
+    logger.debug(f"Keywords: {keywords}")
+    return keywords
 
 
 def get_lectures() -> list[dict]:
@@ -122,7 +140,7 @@ def add_lecture(class_code: str, topic: str, page: int, text: str):
         json.dump(lectures, f, indent=4)
 
 
-def query_lectures(class_code: str, topic: str) -> list[dict]
+def query_lectures(class_code: str, topic: str) -> list[dict]:
     lectures = get_lectures()
     output = []
     for lecture in lectures:
@@ -148,7 +166,7 @@ def cmp(class_code: str, topic: str) -> list[dict]:
     note = query_notes(class_code, topic)
     lectures = query_lectures(class_code, topic)
 
-    threshold = 0.75
+    threshold = 0.7
     missing_lectures = []
 
     for lecture in lectures:
@@ -160,7 +178,30 @@ def cmp(class_code: str, topic: str) -> list[dict]:
 
 
 
+def main():
+    data_dir = Path(__file__).resolve().parents[1] / "data"
+    # print(data_dir)
+    class_code = "dsc360"
+    topic = "conclusion"
 
+    lecture_name = "Course Conclusion.pptx"
+    lecture_path = data_dir / lecture_name
+
+    clear_db()
+    for page, text in enumerate(extract_text(lecture_path)):
+        if text == "": continue
+        print(text)
+        add_lecture(class_code, topic, page, text)
+        
+
+    lectures = get_lectures()
+    print(f"# lectures: {len(lectures)}")
+
+
+
+
+if __name__ == "__main__":
+    main()
 
 
 
