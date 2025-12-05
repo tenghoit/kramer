@@ -2,6 +2,8 @@ import json
 import ollama
 import logging
 import setup_logging
+import argparse
+import sys
 from pathlib import Path
 import numpy as np
 import json
