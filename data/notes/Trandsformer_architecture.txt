@@ -1,121 +1,89 @@
-⭐ Tokens & Tokenization
-
-LLMs operate on tokens, not raw words or letters.
-
-Tokenizer breaks text into subword units: e.g., “Out walking!” → [out, walk, ing, !]
-
-Keeps vocabulary small (~50k tokens instead of millions of words).
-
-Tokens often align with morphemes, so they encode meaning-rich units.
-
-⭐ Positional Encoding
-
-Transformers process tokens in parallel, so they need a way to encode order.
-
-Positional embeddings give each token a sense of where it is in the sequence.
-
-⭐ Generating Text — The Basics
-
-Core task: predict the next token given context.
-
-Softmax turns scores → probabilities that sum to 1.
-
-Temperature controls creativity:
-
-low = deterministic,
-
-high = diverse/surprising.
-
-This is the foundation for all LLM text generation.
-
-⭐ Controlling Text Generation
-
-Top-k: restrict to the top k most likely next tokens.
-
-Top-p (nucleus): restrict to a dynamic probability mass threshold.
-
-Temperature + top-k + top-p shape creativity, style, and coherence.
-
-Used in chatbots, story generation, creative writing, etc.
-
+⭐ What LLMs Actually Process — Tokens
+LLMs don’t read words; they read tokens.
+Tokenizer splits text into subwords, e.g.:
+“Out walking!” → [“out”, “walk”, “ing”, “!”]
+Token vocabularies are small (~50k) compared to total word counts.
+Tokens often align with morphemes, giving meaningful semantic chunks.
+⭐ Positional Encoding — Adding Order
+Transformers read everything in parallel, unlike RNNs.
+They need a way to represent sequence order.
+Positional embeddings encode where each token sits in the sequence.
+Without positional encoding, the model would treat phrases as unordered bags of words.
+⭐ Generating Text — Next-Token Prediction
+Main prediction objective: guess the next token based on context.
+Softmax converts logits → probabilities that sum to 1.
+Temperature controls determinism:
+Low temperature → predictable
+High temperature → creative, diverse
+⭐ Controlling Generation: Top-k & Top-p
+Top-k sampling: restrict next-token candidates to top k probabilities.
+Top-p (nucleus) sampling: use the smallest set of tokens whose cumulative probability ≥ p.
+Combined with temperature, these shape the model’s creativity and coherence.
+Used in chatbots, creative writing, story generation, etc.
 ⭐ Attention — The Core Idea
-
-Predictions depend on context, not isolated tokens.
-
-Attention scores measure relevance between tokens.
-
-Example: “The cat ate because it was hungry.” → “it” should attend to “cat.”
-
-This is why Transformers outperform old sequential models.
-
-⭐ Context Handling & Self-Attention
-
-Meaning of a token changes based on surrounding tokens.
-
-Self-attention lets each token look at all other tokens.
-
-Modern models handle thousands of tokens → large context windows.
-
-⭐ Queries, Keys, Values
-
+The meaning of a word depends on context.
+Attention assigns scores of relevance between tokens.
+Example: “The cat ate because it was hungry.”
+→ “it” should attend to “cat,” not “ate.”
+This lets Transformers understand long-range dependencies.
+⭐ How Transformers Handle Context
+Self-attention: every token attends to every other token (including itself).
+Supports large context windows — thousands of tokens.
+Context-sensitive meaning: “it” means different things depending on sentence.
+⭐ Queries, Keys, Values — How Attention Computes Relevance
 Each token produces:
-
-Query → what am I looking for?
-
-Key → what information do I have?
-
-Value → the info actually carried.
-
-Matching queries to keys decides which values matter.
-
+Query → What am I looking for?
+Key → What information do I have?
+Value → The content to pass on if this token is relevant
+Example: resolving pronouns
+Query("it") → trying to identify referent
+Key("cat") → contains semantic info
+Value("cat") → meaning forwarded to the next layer
+The dot-product of Query·Key gives the attention score.
+⭐ Self-Attention — Why It’s Powerful
+Captures syntactic, semantic, and long-range relationships.
+Computes in parallel → huge speedup vs. RNNs.
+Core reason Transformers scale well to large models.
 ⭐ Multi-Headed Attention
-
-Multiple heads let the model focus on different relationships at once.
-
-Example: one head handles semantic connections, another syntax.
-
-Heads run in parallel → combined for richer understanding.
-
+Multiple attention heads allow the model to learn different types of relationships at once.
+Example from slides:
+Head 1: semantic link (“it” ↔ “cat”)
+Head 2: syntactic structure (subject-verb agreement)
+Each head processes queries/keys/values in a separate subspace.
+Results are concatenated → richer representation.
+⭐ Why Multi-Head Attention Matters
+Handles different linguistic functions simultaneously.
+Improves model expressiveness without huge computational cost.
+Essential for capturing layers of meaning (syntax, semantics, discourse).
 ⭐ Fine-Tuning
-
-Adapt a pretrained model to a specific task.
-
-Saves compute + time by reusing base knowledge.
-
-Example: fine-tuned GPT for medicine, legal work, etc.
-
-⭐ RLHF (Reinforcement Learning w/ Human Feedback)
-
+Start from a pretrained base model.
+Train it further on a domain (medical, legal, tutoring, etc.).
+Saves compute & time; base model already knows general language structure.
+⭐ RLHF — Reinforcement Learning with Human Feedback
 Aligns model behavior with human preferences.
-
-Humans rank/comparatively score outputs → system learns policy rewarding “better” outputs.
-
-Used in models like ChatGPT to improve helpfulness + politeness.
-
-⭐ Applications
-
-Customer-service chatbots
-
-Tutoring systems
-
-Real-time translation
-
-Creative writing + brainstorming
-
+Uses human rankings of outputs to train a reward model.
+Model then optimized (PPO, etc.) to produce outputs humans prefer.
+Used to make ChatGPT safe, polite, helpful, and follow instructions.
+⭐ Shoggoth RLHF Meme (Slide Reference)
+The “Shoggoth” meme visualizes:
+A giant monstrous LLM (raw pretrained model)
+A small friendly smiley mask (the aligned RLHF behavior)
+Meaning:
+Base models are powerful but unaligned
+RLHF acts like a “mask” that shapes interaction behavior
+NYT link on slide discusses public perception & alignment concerns.
+⭐ Applications of Transformers
+Chatbots
+Customer service assistants
+Translation (especially real-time)
+Creative writing & brainstorming
+Tutoring and educational tools
 ⭐ Limitations & Concerns
-
-Context window still limited.
-
-Hallucinations → confident but false answers.
-
-Bias baked into training data.
-
-Ethical issues: energy cost, misinformation, etc.
-
+Context window limit — still bounded (even at 128k+ tokens).
+Hallucinations — models invent plausible but incorrect info.
+Bias from training data propagates into outputs.
+Ethical/environmental concerns: compute cost, misinformation risks.
 ⭐ Wrap-Up
-
-Transformers revolutionized AI via attention.
-
-GPT-style models build on this to generate and reason.
-
-Next time: connecting this architecture to agents and RAG.
+Transformers revolutionized NLP by introducing attention, enabling parallelism + contextual reasoning.
+GPT is a generative model built on Transformer decoder architecture.
+Next topics: RAG + agents + deployment considerations.
