@@ -339,9 +339,128 @@ def embed_notes():
 def main():
     embed_notes()
 
+def cli():
+    parser = argparse.ArgumentParser(prog="notes-agent", description="Compare lecture slides to student notes and generate recommendations.")
+    subparsers = parser.add_subparsers(dest="command", required=True)
 
+    p_init = subparsers.add_parser("init-db", help="Clear DB and embed all lectures.")
+    p_init.set_defaults(func=cmd_init_db)
+
+    p_add = subparsers.add_parser("add-note", help="Add a note for a class and topic.")
+    p_add.add_argument("class_code", type=str)
+    p_add.add_argument("topic", type=str)
+    p_add.add_argument("--text", type=str, help="Note text. If omitted, read from stdin.")
+    p_add.add_argument("--file", type=str, help="Path to file containing note text.")
+    p_add.set_defaults(func=cmd_add_note)
+
+    p_cmp = subparsers.add_parser("compare", help="Show missing lecture chunks for a class and topic.")
+    p_cmp.add_argument("class_code", type=str)
+    p_cmp.add_argument("topic", type=str)
+    p_cmp.set_defaults(func=cmd_compare)
+
+    p_rec = subparsers.add_parser("recommend", help="Generate a recommendation based on missing content.")
+    p_rec.add_argument("class_code", type=str)
+    p_rec.add_argument("topic", type=str)
+    p_rec.set_defaults(func=cmd_recommend)
+
+    p_slide = subparsers.add_parser("add-slide", help="Add a single lecture slide chunk manually.")
+    p_slide.add_argument("class_code", type=str)
+    p_slide.add_argument("topic", type=str)
+    p_slide.add_argument("page", type=int)
+    p_slide.add_argument("--text", type=str, help="Slide text. If omitted, read from stdin.")
+    p_slide.add_argument("--file", type=str, help="Path to a file containing slide text.")
+    p_slide.set_defaults(func=cmd_add_slide)
+
+
+    p_clear = subparsers.add_parser("clear-db", help="Clear notes and lectures.")
+    p_clear.set_defaults(func=cmd_clear_db)
+
+    args = parser.parse_args()
+    args.func(args)
+
+
+def cmd_init_db(args):
+    clear_db()
+    embed_all_lectures()
+    print("Database cleared and lectures embedded.")
+
+
+def cmd_add_note(args):
+    class_code = args.class_code
+    topic = args.topic
+
+    if args.text is not None:
+        text = args.text
+    elif args.file is not None:
+        text = Path(args.file).read_text(encoding="utf-8")
+    else:
+        text = sys.stdin.read()
+
+    add_note(class_code, topic, text)
+    print(f"Added note for {class_code} {topic}.")
+
+
+def cmd_compare(args):
+    class_code = args.class_code
+    topic = args.topic
+    try:
+        missing = cmp(class_code, topic)
+    except ValueError as e:
+        print(str(e))
+        sys.exit(1)
+
+    if not missing:
+        print("No missing lecture chunks detected for this topic.")
+        return
+
+    print(f"Missing lecture chunks for {class_code} {topic}:")
+    for lec in missing:
+        page = lec.get("page", "?")
+        text = lec.get("text", "").strip().replace("\n", " ")
+        print(f"\n--- Slide {page} ---")
+        print(text)
+
+
+def cmd_recommend(args):
+    class_code = args.class_code
+    topic = args.topic
+
+    note = query_notes(class_code, topic)
+    if not note:
+        print(f"No note found for {class_code} {topic}.")
+        sys.exit(1)
+
+    try:
+        missing = cmp(class_code, topic)
+    except ValueError as e:
+        print(str(e))
+        sys.exit(1)
+
+    rec = generate_recommendation(note, missing)
+    print(rec)
+
+def cmd_add_slide(args):
+    class_code = args.class_code
+    topic = args.topic
+    page = args.page
+
+    if args.text is not None:
+        text = args.text
+    elif args.file is not None:
+        text = Path(args.file).read_text(encoding="utf-8")
+    else:
+        text = sys.stdin.read()
+
+    add_lecture(class_code, topic, page, text)
+    print(f"Added lecture slide for {class_code} {topic} page {page}.")
+    
+def cmd_clear_db(args):
+    clear_db()
+    print("Database cleared.")
+    
 if __name__ == "__main__":
-    main()
+    cli()
+
 
 
 
