@@ -99,3 +99,514 @@
 13:40:23:DEBUG:get_keywords: Keywords: ['agent', 'agents', 'rationality', 'environments', 'percept', 'percept sequence', 'actuators', 'sensors', 'PEAS', 'LLM', 'classical AI', 'agentic systems', 'observe', 'decide', 'act', 'pipeline', 'feedback loops', 'memory', 'planning']
 13:40:25:DEBUG:add_note: dsc360 agent notes added.
 13:40:25:DEBUG:embed_notes: Added [what_is_agent_notes.txt] to notes
+15:25:44:DEBUG:cmp: 0.6723682007301597
+15:25:44:DEBUG:cmp: 0.8370934929744281
+15:25:44:DEBUG:cmp: 0.7910817871039265
+15:25:44:DEBUG:cmp: 0.7709373200694812
+15:25:44:DEBUG:cmp: 0.7543415259933614
+15:25:44:DEBUG:cmp: 0.731239607003376
+15:25:44:DEBUG:cmp: 0.6752006029533066
+15:25:44:DEBUG:cmp: 0.7418229285257204
+15:25:44:DEBUG:cmp: 0.7287959605002287
+15:25:44:DEBUG:cmp: 0.7199771841344366
+15:25:44:DEBUG:cmp: 0.7590998049630046
+15:25:44:DEBUG:cmp: 0.6574395718635153
+
+
+
+
+15:38:14:DEBUG:cmp: 0.5286924564012172
+15:38:14:DEBUG:cmp: 0.4950112872543822
+15:38:14:DEBUG:cmp: 0.49906653830607894
+15:38:14:DEBUG:cmp: 0.6533791632804056
+15:38:14:DEBUG:cmp: 0.661692502829121
+15:38:14:DEBUG:cmp: 0.4809239973258725
+15:38:14:DEBUG:cmp: 0.47839055540179404
+15:38:14:DEBUG:cmp: 0.6239747508284563
+15:38:14:DEBUG:cmp: 0.7569528617236685
+15:38:14:DEBUG:cmp: 0.5451540860670185
+15:38:14:DEBUG:cmp: 0.6307316561422315
+15:38:14:DEBUG:cmp: 0.6708886759869038
+15:38:14:DEBUG:cmp: 0.6536887277268063
+15:38:14:DEBUG:cmp: 0.709126429923823
+15:38:14:DEBUG:cmp: 0.5725339904072301
+15:38:14:DEBUG:cmp: 0.4390511718698007
+15:38:15:DEBUG:cmp: 0.6992738543691888
+15:38:15:DEBUG:cmp: 0.7582867059400435
+15:38:15:DEBUG:cmp: 0.6957297462535462
+15:38:15:DEBUG:cmp: 0.634205984873965
+15:38:15:DEBUG:cmp: 0.6750581076729227
+15:38:15:DEBUG:cmp: 0.7330602071432047
+15:38:15:DEBUG:cmp: 0.6752167694882687
+15:38:15:DEBUG:cmp: 0.7012414703606958
+15:38:15:DEBUG:cmp: 0.686829550262834
+15:38:15:DEBUG:cmp: 0.6134142324661824
+15:38:15:DEBUG:cmp: 0.6184493413795524
+15:38:15:DEBUG:cmp: 0.5419780926036628
+15:38:15:DEBUG:cmp: 0.6402038261468569
+15:38:15:DEBUG:cmp: 0.5386943958689503
+15:38:15:DEBUG:cmp: 0.6660063369208237
+15:38:16:DEBUG:cmp: 0.49226980189431013
+15:38:16:DEBUG:cmp: 0.806306255942664
+15:38:16:DEBUG:cmp: 0.6899259164156386
+15:38:16:DEBUG:cmp: 0.7181186601263989
+15:38:16:DEBUG:cmp: 0.7533619989457424
+15:38:16:DEBUG:cmp: 0.7070501867240382
+15:38:16:DEBUG:cmp: 0.6604650256593275
+15:38:16:DEBUG:cmp: 0.7152927087362988
+15:38:16:DEBUG:cmp: 0.6225458384316673
+15:38:16:DEBUG:cmp: 0.6913289729174288
+15:38:16:DEBUG:cmp: 0.7387869431377283
+15:38:16:DEBUG:cmp: 0.7551746636310981
+15:38:16:DEBUG:cmp: 0.6191503949793878
+15:38:16:DEBUG:cmp: 0.7507126624068097
+15:38:16:DEBUG:cmp: 0.8083337253556112
+15:38:16:DEBUG:cmp: 0.5249794203397298
+15:38:16:DEBUG:cmp: 0.6437602232467963
+15:38:16:DEBUG:cmp: 0.7093431265188841
+15:38:16:DEBUG:cmp: 0.5912743644641226
+15:38:16:DEBUG:cmp: 0.5861609623808791
+15:38:16:DEBUG:cmp: 0.43505337784749204
+15:38:16:DEBUG:cmp: 0.6366893968654599
+15:38:16:DEBUG:cmp: 0.669810862977932
+15:38:16:DEBUG:cmp: 0.6171293790781456
+15:38:16:DEBUG:cmp: 0.41263538602463057
+15:38:16:DEBUG:cmp: 0.5992014615744163
+15:38:16:DEBUG:cmp: 0.46094798925819613
+15:38:16:DEBUG:cmp: 0.5767317066540463
+15:38:16:DEBUG:cmp: 0.7620537155075303
+15:38:16:DEBUG:cmp: 0.8174421380678618
+15:38:16:DEBUG:cmp: 0.729481505594512
+15:38:16:DEBUG:cmp: 0.6957139783088251
+15:38:16:DEBUG:cmp: 0.6842926317691853
+15:38:16:DEBUG:cmp: 0.777317919540254
+15:38:16:DEBUG:cmp: 0.6023942759137539
+15:38:16:DEBUG:cmp: 0.4580969906410048
+15:38:16:DEBUG:cmp: 0.5388222156188688
+15:38:16:DEBUG:cmp: 0.5774038349650811
+15:38:16:DEBUG:cmp: 0.8005932331658986
+15:38:16:DEBUG:cmp: 0.6486816012017101
+15:38:16:DEBUG:cmp: 0.6028020566572359
+15:38:16:DEBUG:cmp: 0.48996296526026367
+15:38:16:DEBUG:cmp: 0.5382614810768546
+15:38:16:DEBUG:cmp: 0.608139025698412
+15:38:16:DEBUG:cmp: 0.5975592890959724
+15:38:16:DEBUG:cmp: 0.44123180203029544
+15:38:16:DEBUG:cmp: 0.4974542741884385
+15:38:16:DEBUG:cmp: 0.5671386193882291
+15:38:16:DEBUG:cmp: 0.43006529295264717
+15:38:16:DEBUG:cmp: 0.6928159577311734
+15:38:16:DEBUG:cmp: 0.6940305432380023
+15:38:16:DEBUG:cmp: 0.7059016821391345
+15:38:16:DEBUG:cmp: 0.6567413934248086
+15:38:16:DEBUG:cmp: 0.7962768062324369
+15:38:16:DEBUG:cmp: 0.534668502249805
+15:38:16:DEBUG:cmp: 0.5814498698225304
+15:38:17:DEBUG:cmp: 0.8116576332333394
+15:38:17:DEBUG:cmp: 0.5598296330503063
+15:38:17:DEBUG:cmp: 0.6180848998789198
+15:38:17:DEBUG:cmp: 0.5932723176190658
+15:38:17:DEBUG:cmp: 0.6999566790205383
+15:38:17:DEBUG:cmp: 0.6329820845493764
+15:38:17:DEBUG:cmp: 0.5551661449150191
+15:38:17:DEBUG:cmp: 0.6359584350804072
+15:38:17:DEBUG:cmp: 0.7388312249988626
+15:38:17:DEBUG:cmp: 0.7627337172211455
+15:38:17:DEBUG:cmp: 0.6462025399082457
+15:38:17:DEBUG:cmp: 0.5912366181234266
+15:38:17:DEBUG:cmp: 0.6235816891209044
+15:38:17:DEBUG:cmp: 0.7683010243619776
+15:38:17:DEBUG:cmp: 0.7101594541444353
+15:38:17:DEBUG:cmp: 0.596689848381584
+15:38:17:DEBUG:cmp: 0.6363627689400039
+15:38:17:DEBUG:cmp: 0.6614041679131142
+15:38:17:DEBUG:cmp: 0.6068503905873213
+15:38:17:DEBUG:cmp: 0.6998190626095169
+15:38:17:DEBUG:cmp: 0.6293217356939683
+15:38:17:DEBUG:cmp: 0.6496266376746228
+15:38:17:DEBUG:cmp: 0.67443795128598
+15:38:17:DEBUG:cmp: 0.801630886021426
+15:38:17:DEBUG:cmp: 0.7886769878973587
+15:38:17:DEBUG:cmp: 0.7458920789848656
+15:38:17:DEBUG:cmp: 0.6428792829402469
+15:38:18:DEBUG:cmp: 0.840661551429726
+15:38:18:DEBUG:cmp: 0.7791117673444645
+15:38:18:DEBUG:cmp: 0.6258449077232424
+15:38:18:DEBUG:cmp: 0.7252228149663136
+15:38:18:DEBUG:cmp: 0.5807320961076683
+15:38:18:DEBUG:cmp: 0.41815954988147647
+15:38:18:DEBUG:cmp: 0.83966801974535
+15:38:18:DEBUG:cmp: 0.6723682007301597
+15:38:18:DEBUG:cmp: 0.8370934929744281
+15:38:18:DEBUG:cmp: 0.7910817871039265
+15:38:18:DEBUG:cmp: 0.7709373200694812
+15:38:18:DEBUG:cmp: 0.7543415259933614
+15:38:18:DEBUG:cmp: 0.731239607003376
+15:38:18:DEBUG:cmp: 0.6752006029533066
+15:38:18:DEBUG:cmp: 0.7418229285257204
+15:38:18:DEBUG:cmp: 0.7287959605002287
+15:38:18:DEBUG:cmp: 0.7199771841344366
+15:38:18:DEBUG:cmp: 0.7590998049630046
+15:38:18:DEBUG:cmp: 0.6574395718635153
+
+
+
+15:39:44:DEBUG:cmp: 0.5286924564012172
+15:39:44:DEBUG:cmp: 0.4950112872543822
+15:39:44:DEBUG:cmp: 0.49906653830607894
+15:39:44:DEBUG:cmp: 0.6533791632804056
+15:39:44:DEBUG:cmp: 0.661692502829121
+15:39:44:DEBUG:cmp: 0.4809239973258725
+15:39:44:DEBUG:cmp: 0.47839055540179404
+15:39:44:DEBUG:cmp: 0.6239747508284563
+15:39:44:DEBUG:cmp: 0.7569528617236685
+15:39:44:DEBUG:cmp: 0.5451540860670185
+15:39:44:DEBUG:cmp: 0.6307316561422315
+15:39:44:DEBUG:cmp: 0.6708886759869038
+15:39:44:DEBUG:cmp: 0.6536887277268063
+15:39:44:DEBUG:cmp: 0.709126429923823
+15:39:44:DEBUG:cmp: 0.5725339904072301
+15:39:44:DEBUG:cmp: 0.4390511718698007
+15:43:29:DEBUG:generate_recommendation: Recommendation: Okay, here's a breakdown of what's missing from your notes and what you should review to get a more complete understanding of the lecture material. Your notes capture the core ideas, but lack some crucial details and context. I'm organizing this by topic area to make it easier to address.
+
+**1. Structured Extraction Pipeline - Deep Dive**
+
+*   **Missing:** You mention the pipeline, but you're missing the specifics of *how* it works.
+*   **Review:** Go back and review the slide detailing the pipeline. Pay close attention to:
+    *   **The "Return only JSON" prompt:** This is a key technique for getting structured output.
+    *   **JSON Schema & Pydantic:** Understand *why* these are used (enforcing structure, types, and rules) and how they contribute to the "validated object being the source of truth."
+    *   **Evaluation (Exact Match):** This reinforces the "never trust raw output" principle.
+
+**2. From Generation to Execution & Guardrails**
+
+*   **Missing:** The shift in thinking when moving from generation to execution is glossed over. You mention it, but not the *implications*.
+*   **Review:** Focus on the slide highlighting the change:  The move from inspecting output to the model *acting* on data. Understand that a single wrong command can have serious consequences (data deletion, exposure, corruption). This is the core motivation for all the safety measures discussed later.
+
+**3. Prompt Injection - Why it Works (More Detail)**
+
+*   **Missing:** While you mention prompt injection, you need a deeper understanding of *why* it's so effective.
+*   **Review:** Revisit the slide explaining how LLMs follow the last speaker, lack persistent memory, and how context blending allows malicious text to hijack control.  The "innocent copy-paste" example is important – it highlights how subtle prompt injection can be.
+
+**4. Defining Safety & Responsibility**
+
+*   **Missing:** The discussion around *who* decides what's safe and how responsibility is divided is somewhat truncated.
+*   **Review:**  Focus on the discussion about engineers defining safety through guardrails, validation, and restricted execution. Also, review the slide that asks "Once a model can execute commands, every output is a decision. How should responsibility be divided?" This is a crucial point about shared responsibility between the model, the system, and the human.
+
+**5. Validation & the Safety Envelope - Specifics**
+
+*   **Missing:** You mention validation and the safety envelope, but lack the specifics of *what* those checks entail.
+*   **Review:** Pay close attention to the slides detailing:
+    *   **Syntax, Semantics, and Intent Checks:** Understand what each of these means in practice (e.g., what constitutes a semantic check?).
+    *   **Components of the Safety Envelope:**  Review the list of actions: sanitize input, validate syntax, check semantics, restrict execution, log and review.
+    *   **"Plausible but Wrong" Failures:** This is a key concept – the most dangerous errors *look* correct.
+
+**Overall Recommendation:**
+
+Your notes are a good start, but you need to focus on the *details* of *how* these safety measures are implemented. Think about the "how" and "why" behind each concept, not just the "what."  Pay special attention to the slides that describe specific techniques and components of the safety envelope.
+
+
+
+Good luck with your review!
+15:43:29:DEBUG:cmp: 0.6992738543691888
+15:43:29:DEBUG:cmp: 0.7582867059400435
+15:43:29:DEBUG:cmp: 0.6957297462535462
+15:43:29:DEBUG:cmp: 0.634205984873965
+15:43:29:DEBUG:cmp: 0.6750581076729227
+15:43:29:DEBUG:cmp: 0.7330602071432047
+15:43:29:DEBUG:cmp: 0.6752167694882687
+15:43:29:DEBUG:cmp: 0.7012414703606958
+15:43:29:DEBUG:cmp: 0.686829550262834
+15:43:29:DEBUG:cmp: 0.6134142324661824
+15:43:29:DEBUG:cmp: 0.6184493413795524
+15:43:29:DEBUG:cmp: 0.5419780926036628
+15:43:29:DEBUG:cmp: 0.6402038261468569
+15:43:29:DEBUG:cmp: 0.5386943958689503
+15:43:29:DEBUG:cmp: 0.6660063369208237
+15:47:31:DEBUG:generate_recommendation: Recommendation: Okay, here's a breakdown of what's missing from your notes and what you should review. You're off to a good start, but there are some key details that would significantly improve your understanding. I'm organizing this by the areas where gaps are most noticeable.
+
+**1. Tokenization & Softmax (Early Concepts - Foundation!)**
+
+*   **Missing Detail:** You mention tokens, but you're missing the crucial explanation of *why* tokenization is used. It's not just about breaking text down; it's about managing vocabulary size. You need to explicitly state that tokenization allows LLMs to work with a much smaller, manageable vocabulary (~50k tokens) compared to the millions of words that exist.
+*   **Review:** Go back and review the explanation of how tokenizers work (e.g., subword tokenization) and *why* this is essential for LLM efficiency. Also, you're missing the explanation of Softmax. It's vital to understand that Softmax converts the model's raw output scores into probabilities, ensuring they sum to 1. This is the basis for predicting the next token. You also missed the comparison to Sigmoid.
+*   **Key Phrase to Add:** "Tokenization reduces vocabulary size, enabling LLMs to process text efficiently."
+
+**2. Controlling Text Generation (Temperature, Top-k, Top-p)**
+
+*   **Missing Detail:** While you mention Top-k and Top-p, you're missing the deeper explanation of *how* they work and their impact. You need to understand that Top-k restricts the model to the *k* most probable tokens, while Top-p (nucleus sampling) dynamically selects tokens until a certain probability mass is reached.
+*   **Review:** Revisit the explanation of how these sampling methods influence the model's output – how they balance creativity, coherence, and predictability.
+*   **Key Phrase to Add:** "Top-k sampling limits predictions to the k most probable tokens, while Top-p focuses on a dynamic probability threshold to balance creativity and coherence."
+
+**3. Attention Mechanism & Multi-Headed Attention (Core Concept!)**
+
+*   **Missing Detail:** Your notes touch on attention, but you're missing the detailed explanation of Queries, Keys, and Values. You need to understand how these components work together to determine the relevance between tokens. You also missed the "why" behind multi-headed attention.
+*   **Review:** Focus on the analogy of Queries, Keys, and Values. Think of it as a search process – the Query is what you're looking for, the Key is what information is available, and the Value is the actual information to focus on. Also, review why splitting the attention process into multiple "heads" is beneficial.
+*   **Key Phrase to Add:** "Queries represent what a token is looking for, Keys represent the information available, and Values are the actual information to focus on. Multi-headed attention allows the model to capture different types of relationships between tokens."
+
+**4. Fine-Tuning & RLHF (Advanced Concepts)**
+
+*   **Missing Detail:** You mention these, but the explanation is brief. RLHF is a complex process; you need to understand that it's about using human feedback to *train* the model to align with human preferences.
+*   **Review:** Understand the role of human rankers and how their feedback is used to create a reward signal for the reinforcement learning process.
+*   **Key Phrase to Add:** "RLHF uses human feedback to train a reward model, which then guides the LLM to generate outputs that are more aligned with human preferences."
+
+
+
+By adding these details and reviewing the corresponding lecture material, you're notes will be much more comprehensive and demonstrate a deeper understanding of the concepts.
+15:47:31:DEBUG:cmp: 0.49226980189431013
+15:47:31:DEBUG:cmp: 0.806306255942664
+15:47:31:DEBUG:cmp: 0.6899259164156386
+15:47:31:DEBUG:cmp: 0.7181186601263989
+15:47:31:DEBUG:cmp: 0.7533619989457424
+15:47:31:DEBUG:cmp: 0.7070501867240382
+15:47:31:DEBUG:cmp: 0.6604650256593275
+15:47:31:DEBUG:cmp: 0.7152927087362988
+15:47:31:DEBUG:cmp: 0.6225458384316673
+15:47:31:DEBUG:cmp: 0.6913289729174288
+15:47:31:DEBUG:cmp: 0.7387869431377283
+15:47:31:DEBUG:cmp: 0.7551746636310981
+15:47:31:DEBUG:cmp: 0.6191503949793878
+15:50:51:DEBUG:generate_recommendation: Recommendation: Okay, here's a breakdown of what's missing from your notes and what you should review to strengthen your understanding of the lecture material. Your notes capture a lot of the key points, but there are some crucial details that were glossed over.
+
+**Overall Impression:** You're focusing on the *what* (the trends and outcomes) but missing some of the *why* and the underlying technical details.
+
+Here's a breakdown by category, with recommendations:
+
+**1. Agentic AI & Orchestration (Significant Gap):**
+
+*   **What's Missing:** Your notes mention agents and orchestration, but not with enough depth. The lecture emphasized the shift from the "AutoGPT will do everything" hype to the reality of *task-specific* agents. You need to understand *how* these agents are being used practically.
+*   **Review:** Revisit the section on Agentic AI. Think about the practical applications mentioned (invoice matching, triage, routing). Consider *what* tools these agents would be interacting with, and *how* an orchestration layer would manage those interactions.  Think about the role of APIs in this context.
+
+**2. Small Language Models (SLMs) - Important Detail:**
+
+*   **What's Missing:** You mention SLMs, but not the *reason* for their rise. The lecture highlighted the trade-offs: cost, speed, privacy, and the fact that they are often "good enough" for many tasks.
+*   **Review:** Understand the advantages of SLMs and why they are becoming increasingly important. Think about scenarios where a smaller, faster model would be preferable to a massive one.
+
+**3. The Return of "Old Ideas" - Conceptual Understanding:**
+
+*   **What's Missing:** You mention the return of old ideas, but not the *reason* they're returning. The lecture explained that previous limitations in technology prevented these ideas from being viable. Now, with advancements in hardware and software, they're resurfacing.
+*   **Review:**  Focus on *why* hybrid systems (models proposing, planners verifying) and formal verification are making a comeback. Understand the limitations of LLMs (particularly in planning and logic) and how these "old" techniques address those limitations.
+
+**4. Conceptual Depth on "Why This Course Will Still Matter":**
+
+*   **What's Missing:** The lecture's plan explicitly stated the goal of reflecting on what we learned and where AI is going. Your notes don't fully capture this reflective element.
+*   **Review:** Consider *why* the core concepts (retrieval, evaluation, safety) will remain important regardless of API changes or model advancements. Think about how the skills you're developing (debugging complex systems, thinking in pipelines) are transferable and will remain valuable.
+
+
+
+By addressing these gaps, you're demonstrating a deeper understanding of the material and will be better prepared for the final project and exam.
+15:50:51:DEBUG:cmp: 0.7507126624068097
+15:50:51:DEBUG:cmp: 0.8083337253556112
+15:50:51:DEBUG:cmp: 0.5249794203397298
+15:50:51:DEBUG:cmp: 0.6437602232467963
+15:50:51:DEBUG:cmp: 0.7093431265188841
+15:50:51:DEBUG:cmp: 0.5912743644641226
+15:50:51:DEBUG:cmp: 0.5861609623808791
+15:50:51:DEBUG:cmp: 0.43505337784749204
+15:50:51:DEBUG:cmp: 0.6366893968654599
+15:50:51:DEBUG:cmp: 0.669810862977932
+15:50:51:DEBUG:cmp: 0.6171293790781456
+15:50:51:DEBUG:cmp: 0.41263538602463057
+15:50:51:DEBUG:cmp: 0.5992014615744163
+15:50:51:DEBUG:cmp: 0.46094798925819613
+15:54:01:DEBUG:generate_recommendation: Recommendation: Okay, here's a breakdown of what's missing from your notes, focusing on key concepts and what you should review. I'm organizing this by the areas where gaps are most noticeable.
+
+**1. Understanding the Problem with Naive String Parsing (Slides 5 & 6)**
+
+*   **Missing Core Idea:** Your notes mention the inconsistency of naive string parsing, but they don's fully explain *why* it's a problem. The lecture emphasized that natural language is inherently ambiguous and unpredictable. LLMs are probabilistic, so their output isn't guaranteed to be consistent.
+*   **Review:** Revisit Slides 5 & 6. Focus on the *evaluation* section of each slide. Understand why the outputs were inconsistent and why this makes them unsuitable for automated processing. The core issue is the lack of a defined structure.
+
+**2. Deep Dive into Schema Enforcement & Pydantic (Slides 8, 9, 10)**
+
+*   **Missing Core Idea:** Your notes mention Pydantic, but don't fully explain *how* it's used to enforce the schema. The lecture likely detailed how Pydantic defines data types, constraints, and how it attempts to coerce minor errors. It's crucial to understand that Pydantic isn't just about validation; it's about *robustness* in handling slightly imperfect LLM outputs.
+*   **Review:** Review Slides 8, 9, and 10. Pay attention to how the schema is defined (likely using a Python class) and how Pydantic is used to validate the LLM's output. Understand the concept of "minor errors" and how Pydantic handles them (coercion vs. rejection).
+
+**3. Connecting Concepts: Data Flow & Pipeline Stages**
+
+*   **Missing Core Idea:** While you outline the tasks in Labs 5-7, the notes don's fully connect *how* each stage builds upon the previous one. The lecture likely emphasized that each step (ingestion, prerequisite parsing, enrichment) contributes to a progressively more structured and validated dataset.
+*   **Review:** Re-examine the descriptions of Labs 5, 6, and 7. Think about how the output of Task 1 (ingesting the schedule) becomes the input for Task 2 (prerequisite logic), and so on.
+
+**4. SQL and Data Storage (Slide 15)**
+
+*   **Missing Core Idea:** The lecture likely elaborated on *why* PostgreSQL is a good choice for storing validated JSON objects. It's a strongly-typed database, which means it enforces data integrity.
+*   **Review:** Review Slide 15. Understand the connection between the validated JSON objects and the PostgreSQL tables.
+
+
+
+By focusing on these areas, you'll have a much more complete understanding of the material.
+15:54:01:DEBUG:cmp: 0.5767317066540463
+15:54:01:DEBUG:cmp: 0.7620537155075303
+15:54:01:DEBUG:cmp: 0.8174421380678618
+15:54:01:DEBUG:cmp: 0.729481505594512
+15:54:01:DEBUG:cmp: 0.6957139783088251
+15:54:01:DEBUG:cmp: 0.6842926317691853
+15:54:01:DEBUG:cmp: 0.777317919540254
+15:54:01:DEBUG:cmp: 0.6023942759137539
+15:54:01:DEBUG:cmp: 0.4580969906410048
+15:54:01:DEBUG:cmp: 0.5388222156188688
+15:54:01:DEBUG:cmp: 0.5774038349650811
+15:54:01:DEBUG:cmp: 0.8005932331658986
+15:54:01:DEBUG:cmp: 0.6486816012017101
+15:54:01:DEBUG:cmp: 0.6028020566572359
+15:54:01:DEBUG:cmp: 0.48996296526026367
+15:54:01:DEBUG:cmp: 0.5382614810768546
+15:54:01:DEBUG:cmp: 0.608139025698412
+15:54:01:DEBUG:cmp: 0.5975592890959724
+15:54:01:DEBUG:cmp: 0.44123180203029544
+15:54:01:DEBUG:cmp: 0.4974542741884385
+15:54:01:DEBUG:cmp: 0.5671386193882291
+15:54:01:DEBUG:cmp: 0.43006529295264717
+15:54:01:DEBUG:cmp: 0.6928159577311734
+15:54:01:DEBUG:cmp: 0.6940305432380023
+15:54:01:DEBUG:cmp: 0.7059016821391345
+15:54:01:DEBUG:cmp: 0.6567413934248086
+15:54:01:DEBUG:cmp: 0.7962768062324369
+15:54:01:DEBUG:cmp: 0.534668502249805
+15:54:01:DEBUG:cmp: 0.5814498698225304
+15:59:37:DEBUG:generate_recommendation: Recommendation: Okay, here's a breakdown of what's missing from your notes and what you should review. You've got a good foundation, but there are some key concepts from the lecture that aren's represented.
+
+**Overall Impression:** Your notes focus primarily on the structure and components of the agent (Planner, SQL Writer, Verifier, Loop) and the "contracts." However, they lack depth regarding *why* certain design choices are made and the nuances of the concepts discussed.
+
+**Here's what's missing, categorized by importance:**
+
+**1. Critical Gaps (Review these immediately):**
+
+*   **Bounded Iterations & Small State (Slide 2):** You mention the loop, but you don't explicitly state the importance of *bounded iterations* and maintaining a *small state*. This is crucial for reliability and preventing runaway agents. Review why limiting the number of steps and keeping the state minimal are important design principles.
+*   **Safety Envelope Details (Slide 6):** You mention the safety envelope, but you need to understand *why* each element is there. Specifically, review the reasoning behind read-only DB roles, single-statement allowlists, blocking DDL/DML, timeouts, buffered cursors, and upfront refusal of destructive goals. Understand the *purpose* of each safety measure.
+*   **Knowledge Base (KB) vs. State (Slide 7):** You mention them, but you don't explain the distinction clearly. Review the difference between persistent knowledge (KB) and short-term memory (State) and how they work together.
+*   **Common Pitfalls and Fixes (Slide 24 & 29):** You list some pitfalls, but you need to *understand* the underlying reasons for them. For example, why `NOT IN` with NULLs is problematic and why grouping by surrogate keys is incorrect. Really dig into the logic behind the fixes.
+*   **The "Why" Behind the Examples:** You list the example goals and SQL queries, but you don't fully explain the *reasoning* behind the SQL. Review the lecture slides for each example and make sure you understand *why* the SQL is structured the way it is.
+
+**2. Important to Review (Good to have a better understanding):**
+
+*   **The Role of `language_count` (Slide 24):** You mention the pitfall of grouping by `book_id` instead of `title`. Make sure you fully grasp the logic behind this and why it leads to incorrect results.
+*   **Agent Design Card Details:** While you mention the components of the design card, review the purpose of each element and how they contribute to a well-designed agent.
+
+
+
+**Recommendation:** Revisit the lecture slides, paying close attention to the explanations and reasoning behind each concept. Don't just memorize the components; strive to understand *why* they are important. Focus on the "why" behind the design choices.
+15:59:37:DEBUG:cmp: 0.8116576332333394
+15:59:37:DEBUG:cmp: 0.5598296330503063
+15:59:37:DEBUG:cmp: 0.6180848998789198
+15:59:37:DEBUG:cmp: 0.5932723176190658
+15:59:37:DEBUG:cmp: 0.6999566790205383
+15:59:37:DEBUG:cmp: 0.6329820845493764
+15:59:37:DEBUG:cmp: 0.5551661449150191
+15:59:37:DEBUG:cmp: 0.6359584350804072
+15:59:37:DEBUG:cmp: 0.7388312249988626
+15:59:37:DEBUG:cmp: 0.7627337172211455
+15:59:37:DEBUG:cmp: 0.6462025399082457
+15:59:37:DEBUG:cmp: 0.5912366181234266
+15:59:37:DEBUG:cmp: 0.6235816891209044
+15:59:37:DEBUG:cmp: 0.7683010243619776
+15:59:37:DEBUG:cmp: 0.7101594541444353
+15:59:37:DEBUG:cmp: 0.596689848381584
+15:59:37:DEBUG:cmp: 0.6363627689400039
+15:59:37:DEBUG:cmp: 0.6614041679131142
+15:59:37:DEBUG:cmp: 0.6068503905873213
+15:59:37:DEBUG:cmp: 0.6998190626095169
+15:59:37:DEBUG:cmp: 0.6293217356939683
+15:59:37:DEBUG:cmp: 0.6496266376746228
+15:59:37:DEBUG:cmp: 0.67443795128598
+15:59:37:DEBUG:cmp: 0.801630886021426
+15:59:37:DEBUG:cmp: 0.7886769878973587
+15:59:37:DEBUG:cmp: 0.7458920789848656
+15:59:37:DEBUG:cmp: 0.6428792829402469
+16:04:47:DEBUG:generate_recommendation: Recommendation: Okay, here's a breakdown of what's missing from your notes, based on the lecture material. You're off to a good start, but there are some key areas you need to review to have a complete understanding. I'm organizing this by category (Conceptual Understanding, Technical Details, and Case Study).
+
+**1. Conceptual Understanding - The "Why"**
+
+*   **"Measure Twice, Cut Once" & Requirements Gathering:** You have the title, but not the substance. This is *critical*. You need to understand *why* clarifying requirements upfront is so important. **Review:** Slides 5. Focus on the questions: What are you building? Who is it for? Where will it run (now vs. soon)? How big is “scale”? What constraints matter? What does "done" look like?
+*   **Deployment Strategy Rationale:** You're listing pros/cons of deployment options, but not *why* you'd choose one over another in a given situation. **Review:** Slides 11-13. Understand the core differences between Local, Managed, and Hybrid deployments and when each is appropriate.
+*   **Safety as a Hard Gate:** You're listing some safety measures, but you need to grasp the overall philosophy. **Review:** Slide 15. Understand the importance of a "fail-closed" system and the broader concept of proactive safety measures.
+
+**2. Technical Details - The "How"**
+
+*   **Endpoints:** You mention endpoints, but not their function. **Review:** Slides 11 & 12. Understand what endpoints *are* and how they work in the context of your application.
+*   **Safety Pre-Screening:** You list some pre-screening steps, but need to understand the *purpose* of each. **Review:** Slide 17. Why are secrets scrubbed? Why redact sensitive fields?
+*   **Token Cost Calculation:** You have a basic idea, but need to understand the formula and how to apply it. **Review:** Slide 22. Practice calculating token costs for different scenarios.
+*   **Latency & Throughput:** You mention these, but need to understand the relationship and how to optimize for them. **Review:** Slide 23. Understand RPM and TPM limits and how to adjust your application to stay within them.
+*   **Reliability Playbook Components:** You list some components, but need to understand how they work together. **Review:** Slides 24-26. Understand the purpose of retries, circuit breakers, version pinning, and rollbacks.
+*   **Kill Switch Functionality:** You mention it, but need to understand the conditions that trigger it and the process for re-enabling it. **Review:** Slide 27.
+
+**3. Case Study & Exit Ticket**
+
+*   **Registration RAG Helper:** You're summarizing the case study, but need to understand the *choices* made and the *trade-offs* involved. **Review:** Slide 30. Consider why each decision (e.g., Ollama on a Mac Studio, moderation gate) was made.
+*   **Exit Ticket Format:** You're missing the core elements of the exit ticket. **Review:** Slide 35. The exit ticket is a way to synthesize your understanding. You need to state your deployment choice, *justify* it, identify a risk, and explain your mitigation strategy.
+
+
+
+**To help you focus your review:**
+
+*   Go back to the original lecture slides and fill in the gaps in your notes.
+*   Try to explain the concepts to someone else – this is a great way to test your understanding.
+*   Think about how these concepts apply to your own projects or potential applications.
+16:04:47:DEBUG:cmp: 0.840661551429726
+16:04:47:DEBUG:cmp: 0.7791117673444645
+16:04:47:DEBUG:cmp: 0.6258449077232424
+16:04:47:DEBUG:cmp: 0.7252228149663136
+16:04:47:DEBUG:cmp: 0.5807320961076683
+16:04:47:DEBUG:cmp: 0.41815954988147647
+16:04:47:DEBUG:cmp: 0.83966801974535
+16:06:35:DEBUG:generate_recommendation: Recommendation: Okay, here's a breakdown of what's missing from your notes and what you should review. You're on the right track with the core concepts!
+
+**Major Gaps & Recommendations:**
+
+*   **More Detail on Retrieval Modes (Slide 4):** You're listing the modes, but missing *why* you'd choose one over another. Review the lecture material to understand the strengths and weaknesses of each:
+    *   **Dense Vectors:** When are they *most* effective (e.g., nuanced meaning, similarity)? When are they *not* (e.g., exact matches)?
+    *   **BM25:**  Why is it good for specific tasks (IDs, codes)? What are its limitations?
+    *   **Extraction-First:** What types of messy data does this address?
+    *   **SQL/APIs:** What kinds of questions are suitable for these? What are the challenges (schema validation)?
+    *   **Vision:** What are the limitations of OCR and how does it impact retrieval?
+*   **Guardrails - Validation (Slide 8):** You mention deterministic SQL (temp=0), but you missed the crucial point about *schema validation*.  Review why validating the SQL schema is important for reliability.
+*   **Operational Considerations - Semantic Cache Details (Slide 9):** You mention the semantic cache, but you missed the explanation of *why* it's small by default and when/why you'd fall back to a larger window. Understand the trade-offs between speed and completeness.
+
+
+
+By expanding on these areas, you'll have a much more complete understanding of RAG!
+16:06:35:DEBUG:cmp: 0.6723682007301597
+16:06:35:DEBUG:cmp: 0.8370934929744281
+16:06:35:DEBUG:cmp: 0.7910817871039265
+16:06:35:DEBUG:cmp: 0.7709373200694812
+16:06:35:DEBUG:cmp: 0.7543415259933614
+16:06:35:DEBUG:cmp: 0.731239607003376
+16:06:35:DEBUG:cmp: 0.6752006029533066
+16:06:35:DEBUG:cmp: 0.7418229285257204
+16:06:35:DEBUG:cmp: 0.7287959605002287
+16:06:35:DEBUG:cmp: 0.7199771841344366
+16:06:35:DEBUG:cmp: 0.7590998049630046
+16:06:35:DEBUG:cmp: 0.6574395718635153
+16:08:49:DEBUG:generate_recommendation: Recommendation: Okay, here's a breakdown of what's missing from your notes and what you should review. You've captured the core ideas well, but there are a few key areas where your notes are lacking detail, particularly regarding the "why" behind agent design and the nuances of rationality.
+
+**Here's what you need to add/review:**
+
+1.  **Deeper Dive into Rationality & Learning:** Your notes mention rationality, but don's fully explain *why* rationality is important and how it relates to learning.
+    *   **Add:** Expand on the idea that rational agents are *not* perfect. They operate with incomplete information and limited compute. The key is that they *learn* and adapt based on experience to improve future actions. The example of the dung beetle is good, but elaborate on *why* it's not considered rational – because it doesn't adapt. Autonomy, in this context, is about filling in gaps in prior knowledge through learning.
+2.  **Clarify the "twist" in modern LLM-based agents:** You mention LLMs are bringing the agent concept back "with a twist." You don't elaborate on what that twist *is*.
+    *   **Review:** Think about how LLMs change the game. It's not just about perceiving, deciding, and acting; it's about the *way* they perceive (through massive datasets and complex language models), the sophistication of their decision-making (reasoning, planning), and the potential for more nuanced actions.
+3.  **Lab Connections:** While you mention Labs 6 & 7, you don't explicitly connect the concepts to what you're *doing*.
+    *   **Add:** Briefly note how the concepts of rationality and learning will be crucial in Lab 7 when you're adding the agentic loop. Consider how you'll define "rational action" for your specific application in Lab 7.
+
+
+
+By adding these points, your notes will provide a more complete understanding of the material.
+
+
+16:20:02:DEBUG:run_pipeline: comparing dsc360 rag notes
+16:20:02:DEBUG:cmp: 0.840661551429726
+16:20:02:DEBUG:cmp: 0.7791117673444645
+16:20:02:DEBUG:cmp: 0.6258449077232424
+16:20:02:DEBUG:cmp: 0.7252228149663136
+16:20:02:DEBUG:cmp: 0.5807320961076683
+16:20:02:DEBUG:cmp: 0.41815954988147647
+16:20:02:DEBUG:cmp: 0.83966801974535
+16:21:50:DEBUG:generate_recommendation: Recommendation: Okay, here's a breakdown of what's missing from your notes and what you should review. You're on the right track with the core concepts!
+
+**Major Gaps & Recommendations:**
+
+*   **Vector Stores vs. Retrieval:** You noted "Retrieval ≠ vector store," which is great! However, you need to *explain* the difference. A vector store is a *specific type* of database optimized for storing and searching vector embeddings. Retrieval is the *process* of finding relevant information, which can use various methods (including vector search, BM25, etc.). **Review:** Clarify the distinction – a vector store is a tool *used* for retrieval, not the retrieval process itself.
+*   **Schema Validation (for SQL/API):** When using SQL/APIs, it's crucial to validate the schema of the data you're retrieving. This ensures the data is in the expected format and prevents errors during generation. **Review:** Understand why schema validation is important and how it contributes to reliable RAG.
+*   **The Role of Embeddings:** You mention dense vectors, but you don't explain *how* they work. Dense vectors represent text as numerical data, allowing for semantic search. **Review:** Briefly understand how embeddings are created and why they're useful for finding semantically similar information.
+*   **"Lost in the Middle" Problem:** You mention re-ranking to avoid this, but not *what* it is. This refers to the tendency of LLMs to perform worse on information presented in the middle of a retrieved document. **Review:** Understand why this happens and how re-ranking helps.
+
+
+
+By addressing these points, you're RAG notes will be much more comprehensive.

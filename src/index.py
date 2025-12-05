@@ -225,7 +225,7 @@ def cmp(class_code: str, topic: str) -> list[dict]:
     if not note: raise ValueError(F"Missing note for {class_code} {topic}")
     if not lectures: raise ValueError(F"Missing lectures for {class_code} {topic}")
 
-    threshold = 0.7
+    threshold = 0.6
     missing_lectures = []
 
     for lecture in lectures:
@@ -276,7 +276,9 @@ def generate_recommendation(note: dict, missing_lectures: list[dict], model: str
         options={"temperature": 0.2}
     )
     # print(resp["message"]["content"].strip())
-    return resp["message"]["content"].strip()
+    recommendation = resp["message"]["content"].strip()
+    logger.debug(f"Recommendation: {recommendation}")
+    return recommendation
     
 
 
@@ -459,9 +461,28 @@ def cmd_add_slide(args):
 def cmd_clear_db(args):
     clear_db()
     print("Database cleared.")
+
+
+def cmp_all_notes():
+    for note in notes:
+        class_code = note["class_code"]
+        topic = note["topic"]
+        logger.debug(f"comparing {class_code} {topic} notes")
+        missing = cmp(class_code, topic)
+        recommendation = generate_recommendation(note, missing)
+        print(recommendation)
+    
+
+def run_pipeline(class_code, topic):
+    logger.debug(f"comparing {class_code} {topic} notes")
+    missing = cmp(class_code, topic)
+    note = query_notes(class_code=class_code, topic=topic)
+    recommendation = generate_recommendation(note, missing)
+    print(recommendation)
+
     
 if __name__ == "__main__":
-    cli()
+    run_pipeline(class_code="dsc360", topic="rag")
 
 
 
