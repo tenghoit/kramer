@@ -71,3 +71,31 @@
 11:06:55:DEBUG:cmp: 0.7590998049630046
 11:06:55:DEBUG:cmp: 0.6574395718635153
 11:17:31:DEBUG:clear_notes: notes cleared
+
+
+
+13:30:05:DEBUG:clear_notes: notes cleared
+13:31:09:DEBUG:get_keywords: Keywords: ['safe execution', 'prompt injection', 'validation', 'guardrails', 'risk control', 'layers of control', 'human in the loop', 'query validation', 'semantics', 'intent', 'sanitization', 'accountability', 'responsibility', 'structured extraction', 'LLMs', 'NL layer']
+13:31:12:DEBUG:add_note: dsc360 safe execution notes added.
+13:31:12:DEBUG:embed_notes: Added [safe_execution_notes.txt] to notes
+13:32:12:DEBUG:get_keywords: Keywords: ['tokens', 'tokenization', 'positional encoding', 'softmax', 'temperature', 'top-k', 'top-p', 'attention', 'transformers', 'self-attention', 'queries', 'keys', 'values', 'multi-headed attention', 'fine-tuning', 'RLHF', 'context window', 'hallucinations', 'bias', 'RAG']
+13:32:14:DEBUG:add_note: dsc360 transformer architecture notes added.
+13:32:14:DEBUG:embed_notes: Added [Trandsformer_architecture.txt] to notes
+13:33:38:DEBUG:get_keywords: Keywords: ['AI', 'LLM', 'RAG', 'Retrieval', 'Evaluation', 'Safety', 'Agents', 'Neural Networks', 'Transformers', 'Embeddings', 'Context Windows', 'Semantic Search', 'Hybrid Search', 'JSON Schemas', 'SQL', 'Guardrails', 'Deployment', 'Data Engineering', 'Data Governance', 'Orchestration', 'LLMOps', 'SLMs', 'SMMs', 'Inference', 'Planning', 'Logic', 'Verification']
+13:33:41:DEBUG:add_note: dsc360 conclusion notes added.
+13:33:41:DEBUG:embed_notes: Added [conclusion.txt] to notes
+13:34:44:DEBUG:get_keywords: Keywords: ['LLM', 'RAG', 'Agent', 'JSON', 'Schema Validation', 'Pydantic', 'SQL', 'PostgreSQL', 'Data Validation', 'Structured Outputs', 'Parsing', 'Data Extraction', 'Normalization', 'Embeddings', 'Data Pipeline']
+13:34:46:DEBUG:add_note: dsc360 data extraction notes added.
+13:34:46:DEBUG:embed_notes: Added [extraction_notes.txt] to notes
+13:36:11:DEBUG:get_keywords: Keywords: ['agent', 'LLM', 'SQL', 'loop', 'guardrails', 'acceptance checks', 'PEAS', 'Planner', 'SQL Writer', 'Verifier', 'safety', 'state', 'knowledge base', 'Pydantic', 'contracts', 'telemetry', 'RAG', 'deployment', 'anti-join', 'COALESCE', 'NOT EXISTS', 'NOT IN', 'NULL', 'surrogate keys', 'preview', 'cursor', 'temperature', 'logging']
+13:36:14:DEBUG:add_note: dsc360 practical agent notes added.
+13:36:14:DEBUG:embed_notes: Added [agent_in_practice.txt] to notes
+13:38:16:DEBUG:get_keywords: Keywords: ['deployment', 'hosting', 'safety', 'latency', 'throughput', 'budget', 'reliability', 'endpoints', 'provider', 'adapter', 'canary', 'rollout', 'moderation', 'privacy', 'metrics', 'token', 'cost', 'circuit breaker', 'backoff', 'redaction', 'PII', 'staging', 'production', 'monitoring', 'fallback', 'kill switch', 'rate limit', 'timeout', 'RAG', 'checklist']
+13:38:19:DEBUG:add_note: dsc360 deployment notes added.
+13:38:19:DEBUG:embed_notes: Added [ship_safely_notes.txt] to notes
+13:39:20:DEBUG:get_keywords: Keywords: ['RAG', 'Retrieval-Augmented Generation', 'LLMs', 'Grounding', 'Hallucinations', 'Retrieval', 'Vector Search', 'Semantic Search', 'BM25', 'SQL', 'APIs', 'Vision', 'OCR', 'Guardrails', 'Abstain', 'Evidence', 'Provenance', 'KB', 'Memory', 'Agent Loop']
+13:39:22:DEBUG:add_note: dsc360 rag notes added.
+13:39:22:DEBUG:embed_notes: Added [rag_revisited_notes.txt] to notes
+13:40:23:DEBUG:get_keywords: Keywords: ['agent', 'agents', 'rationality', 'environments', 'percept', 'percept sequence', 'actuators', 'sensors', 'PEAS', 'LLM', 'classical AI', 'agentic systems', 'observe', 'decide', 'act', 'pipeline', 'feedback loops', 'memory', 'planning']
+13:40:25:DEBUG:add_note: dsc360 agent notes added.
+13:40:25:DEBUG:embed_notes: Added [what_is_agent_notes.txt] to notes
