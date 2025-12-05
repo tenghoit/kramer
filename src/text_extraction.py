@@ -52,15 +52,19 @@ def pptx_to_texts(file_path) -> list[str]:
     slide_texts = []
 
     for slide in prs.slides:
-        slide_text = ""
+        paragraphs_out = []
         for shape in slide.shapes:
-            if not shape.has_text_frame:continue
+            if not shape.has_text_frame: continue
             for paragraph in shape.text_frame.paragraphs:
+                line = ""
                 for run in paragraph.runs:
-                    # text_runs.append(run.text)
-                    slide_text += run.text
+                    text = run.text
+                    if line and not line.endswith((" ", "\n")) and text and not text.startswith((" ", "\n")):
+                        line += " "
+                    line += text
+                paragraphs_out.append(line.strip())
         
-        slide_texts.append(slide_text)
+        slide_texts.append("\n".join(paragraphs_out))
 
     return slide_texts
     

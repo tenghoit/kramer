@@ -14,7 +14,7 @@ def setup_logging(log_name: str | None = None) -> None:
     log_path = Path("logs") / log_name
     log_path.parent.mkdir(parents=True, exist_ok=True)
     logging.basicConfig(
-        level=logging.INFO,
+        level=logging.WARNING,
         format="%(asctime)s:%(levelname)s:%(funcName)s: %(message)s",
         datefmt="%H:%M:%S",
         handlers=[
