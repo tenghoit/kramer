@@ -273,7 +273,7 @@ def generate_recommendation(note: dict, missing_lectures: list[dict], model: str
         ],
         options={"temperature": 0.2}
     )
-    print(resp["message"]["content"].strip())
+    # print(resp["message"]["content"].strip())
     return resp["message"]["content"].strip()
     
 
@@ -312,10 +312,32 @@ def embed_all_lectures():
 
 
 
+def embed_notes():
+    clear_notes()
+    notes_dir = Path(__file__).resolve().parents[1] / "data/notes/"
+    class_code = "dsc360"
+
+    topics = {
+        "safe_execution_notes.txt": "safe execution",
+        "Trandsformer_architecture.txt": "transformer architecture",
+        "conclusion.txt": "conclusion",
+        "extraction_notes.txt": "data extraction",
+        "agent_in_practice.txt": "practical agent",
+        "ship_safely_notes.txt": "deployment",
+        "rag_revisited_notes.txt": "rag",
+        "what_is_agent_notes.txt": "agent",
+    }
+    file_paths = list(topics.keys())
+    for file_path in file_paths:
+        full_path = notes_dir / file_path
+        topic = topics[file_path]
+        text = extract_text(full_path)
+        add_note(class_code=class_code, topic=topic, text=text)
+        logger.debug(f"Added [{file_path}] to notes")
+
 
 def main():
-    clear_db()
-    embed_all_lectures()
+    embed_notes()
 
 
 if __name__ == "__main__":

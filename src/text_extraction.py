@@ -42,8 +42,6 @@ def extract_text(file_path: str | Path):
         return pdf_to_text(file_path)
     elif suffix == ".docx":
         return docx_to_text(file_path)
-    elif suffix == ".pptx":
-        return pptx_to_texts(file_path)
     else:
         raise ValueError(f"Unsupported file type: {suffix}")
     

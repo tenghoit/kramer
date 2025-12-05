@@ -2,7 +2,6 @@ import logging
 import datetime
 from pathlib import Path
 
-logging_configured = False
 
 def setup_logging(log_name: str | None = None) -> None:
     """
@@ -22,7 +21,6 @@ def setup_logging(log_name: str | None = None) -> None:
             logging.StreamHandler() # log to console
         ]
     )
-    logging_configured = True
 
-if not logging_configured:
-    setup_logging()
+
+setup_logging()

@@ -1,0 +1,73 @@
+10:41:14:DEBUG:clear_notes: notes cleared
+10:42:21:DEBUG:get_keywords: Keywords: ['agent', 'agents', 'rationality', 'environments', 'percept', 'percept sequence', 'actuators', 'sensors', 'PEAS', 'LLM', 'classical AI', 'agentic systems', 'observe', 'decide', 'act', 'pipeline', 'feedback loops', 'memory', 'planning']
+10:42:25:DEBUG:add_note: dsc360 agent notes added.
+10:42:25:DEBUG:cmp: 0.6723682007301597
+10:42:25:DEBUG:cmp: 0.8370934929744281
+10:42:25:DEBUG:cmp: 0.7910817871039265
+10:42:25:DEBUG:cmp: 0.7709373200694812
+10:42:25:DEBUG:cmp: 0.7543415259933614
+10:42:25:DEBUG:cmp: 0.731239607003376
+10:42:25:DEBUG:cmp: 0.6752006029533066
+10:42:25:DEBUG:cmp: 0.7418229285257204
+10:42:25:DEBUG:cmp: 0.7287959605002287
+10:42:25:DEBUG:cmp: 0.7199771841344366
+10:42:25:DEBUG:cmp: 0.7590998049630046
+10:42:25:DEBUG:cmp: 0.6574395718635153
+10:43:36:DEBUG:clear_notes: notes cleared
+10:43:58:DEBUG:get_keywords: Keywords: ['agent', 'agents', 'rationality', 'environments', 'percept', 'percept sequence', 'actuators', 'sensors', 'PEAS', 'LLM', 'classical AI', 'agentic systems', 'observe', 'decide', 'act', 'pipeline', 'feedback loops', 'memory', 'planning']
+10:44:00:DEBUG:add_note: dsc360 agent notes added.
+10:44:00:DEBUG:cmp: 0.6723682007301597
+10:44:00:DEBUG:cmp: 0.8370934929744281
+10:44:00:DEBUG:cmp: 0.7910817871039265
+10:44:00:DEBUG:cmp: 0.7709373200694812
+10:44:00:DEBUG:cmp: 0.7543415259933614
+10:44:00:DEBUG:cmp: 0.731239607003376
+10:44:00:DEBUG:cmp: 0.6752006029533066
+10:44:00:DEBUG:cmp: 0.7418229285257204
+10:44:00:DEBUG:cmp: 0.7287959605002287
+10:44:00:DEBUG:cmp: 0.7199771841344366
+10:44:00:DEBUG:cmp: 0.7590998049630046
+10:44:00:DEBUG:cmp: 0.6574395718635153
+10:44:34:DEBUG:clear_notes: notes cleared
+10:44:55:DEBUG:get_keywords: Keywords: ['agent', 'agents', 'rationality', 'environments', 'percept', 'percept sequence', 'actuators', 'sensors', 'PEAS', 'LLM', 'classical AI', 'agentic systems', 'observe', 'decide', 'act', 'pipeline', 'feedback loops', 'memory', 'planning']
+10:44:57:DEBUG:add_note: dsc360 agent notes added.
+10:44:57:DEBUG:cmp: 0.6723682007301597
+10:44:57:DEBUG:cmp: 0.8370934929744281
+10:44:57:DEBUG:cmp: 0.7910817871039265
+10:44:57:DEBUG:cmp: 0.7709373200694812
+10:44:57:DEBUG:cmp: 0.7543415259933614
+10:44:57:DEBUG:cmp: 0.731239607003376
+10:44:57:DEBUG:cmp: 0.6752006029533066
+10:44:57:DEBUG:cmp: 0.7418229285257204
+10:44:57:DEBUG:cmp: 0.7287959605002287
+10:44:57:DEBUG:cmp: 0.7199771841344366
+10:44:57:DEBUG:cmp: 0.7590998049630046
+10:44:57:DEBUG:cmp: 0.6574395718635153
+10:45:20:DEBUG:clear_notes: notes cleared
+10:45:42:DEBUG:get_keywords: Keywords: ['agent', 'agents', 'rationality', 'environments', 'percept', 'percept sequence', 'actuators', 'sensors', 'PEAS', 'LLM', 'classical AI', 'agentic systems', 'observe', 'decide', 'act', 'pipeline', 'feedback loops', 'memory', 'planning']
+10:45:43:DEBUG:add_note: dsc360 agent notes added.
+10:45:43:DEBUG:cmp: 0.6723682007301597
+10:45:43:DEBUG:cmp: 0.8370934929744281
+10:45:43:DEBUG:cmp: 0.7910817871039265
+10:45:43:DEBUG:cmp: 0.7709373200694812
+10:45:43:DEBUG:cmp: 0.7543415259933614
+10:45:43:DEBUG:cmp: 0.731239607003376
+10:45:43:DEBUG:cmp: 0.6752006029533066
+10:45:43:DEBUG:cmp: 0.7418229285257204
+10:45:43:DEBUG:cmp: 0.7287959605002287
+10:45:43:DEBUG:cmp: 0.7199771841344366
+10:45:43:DEBUG:cmp: 0.7590998049630046
+10:45:43:DEBUG:cmp: 0.6574395718635153
+11:06:55:DEBUG:cmp: 0.6723682007301597
+11:06:55:DEBUG:cmp: 0.8370934929744281
+11:06:55:DEBUG:cmp: 0.7910817871039265
+11:06:55:DEBUG:cmp: 0.7709373200694812
+11:06:55:DEBUG:cmp: 0.7543415259933614
+11:06:55:DEBUG:cmp: 0.731239607003376
+11:06:55:DEBUG:cmp: 0.6752006029533066
+11:06:55:DEBUG:cmp: 0.7418229285257204
+11:06:55:DEBUG:cmp: 0.7287959605002287
+11:06:55:DEBUG:cmp: 0.7199771841344366
+11:06:55:DEBUG:cmp: 0.7590998049630046
+11:06:55:DEBUG:cmp: 0.6574395718635153
+11:17:31:DEBUG:clear_notes: notes cleared
