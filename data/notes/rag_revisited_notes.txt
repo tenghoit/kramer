@@ -1,0 +1,92 @@
+What is the point of RAG?
+
+RAG = Retrieval-Augmented Generation.
+
+Basically: models are fluent but NOT factual, so retrieval gives them real evidence.
+
+It helps when:
+
+Knowledge updates after model training
+
+Context window is too small
+
+We want grounded answers (model has to “show receipts”)
+
+Grounding lets the system: cite evidence, verify, or abstain if unsure.
+
+Discussion prompt
+
+What evidence would you retrieve for this type of question?
+
+How do you know your answer is grounded?
+→ Probably: check citations match the actual retrieved docs.
+
+⭐ Why RAG?
+
+LLMs sound confident even when wrong → retrieval fixes factuality.
+
+Real-world knowledge constantly changes → need up-to-date sources.
+
+RAG extends the model’s memory beyond its built-in limits.
+
+Grounding prevents hallucinations.
+
+⭐ Retrieval Modes (what tools we can use)
+
+Dense vectors → semantic search; good first pass for approximate meaning.
+
+BM25 keywords → exact match for names, IDs, error codes.
+
+Extraction-first → clean/normalize messy text before retrieving.
+
+SQL / APIs → used for factual queries, counts, compositions; must show work.
+
+Vision → text → OCR/captions/tables, then treat as normal text retrieval.
+
+Note from class: Retrieval ≠ vector store. They’re not the same thing.
+
+⭐ Control Surface
+Guardrails
+
+Cutoffs: if no strong evidence → abstain or ask user to clarify.
+
+Evidence-only answers: system must cite the evidence it used.
+
+Deterministic extract & SQL (temp=0) to keep it reliable.
+
+Re-ranking & ordering to prevent “lost in the middle” effects.
+
+Operational considerations
+
+Timeouts, retries, rate limits
+
+Circuit breaker for flaky tools
+
+Logs + metrics, redact PII
+
+Read-only DB roles, allow-listed tools
+
+Semantic cache; small default window, fallback larger if needed
+
+⭐ RAG inside an Agent Loop
+
+Process:
+Perceive → Decide → Act → Reflect
+
+Choose tools: retrieval, SQL/API, vision→text.
+
+Generate only from the retrieved evidence.
+
+Abstain if evidence is weak.
+
+Self-check: can re-rank results or go fetch more.
+
+KB = memory: read facts and append results with provenance tags.
+
+⭐ Worksheet: Modes
+
+(This part seems like an in-class exercise about selecting retrieval modes for different situations.)
+
+⭐ Reminder
+
+Project proposals due tonight — small portion of project grade.

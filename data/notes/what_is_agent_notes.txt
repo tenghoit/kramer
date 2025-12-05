@@ -1,0 +1,117 @@
+Here are the student-style notes in the same format as before (bullet-based, readable, slightly informal, one intentionally missing topic).
+Below the notes, I list which topic(s) I intentionally left out.
+
+Source: 
+
+Slides What is an Agent
+
+📝 Student Notes — “What Is an Agent? From Classical AI to Modern Agentic Systems”
+
+(DSC 360 — student perspective)
+Source: 
+
+Slides What is an Agent
+
+⭐ Why This Topic Matters
+
+“Agents” have been a core AI idea for decades.
+
+LLM-based systems are basically reviving the classical agent idea but with new capabilities.
+
+Before building one, we need shared terminology for how agents perceive, decide, and act.
+
+⭐ Roadmap for Today
+
+Classical view: agents, environments, rational action.
+
+How these concepts map to LLM-powered systems.
+
+Look ahead to adding an agentic loop to the Lab 6 pipeline.
+
+Key reminder: almost everything we build is some variation of:
+perceive → decide → act.
+
+⭐ Agents (Classical View)
+What an Agent Is
+
+A system that perceives its environment through inputs
+→ each input = a percept
+→ all past percepts = percept sequence
+
+Acts on the environment through outputs (e.g., SQL calls, messages, API requests).
+
+Sometimes the correct action is no action (safe refusal).
+
+Updated for our course
+
+Input could be: user natural-language request.
+
+Output could be: a SQL query, a chatbot reply, or “insufficient context.”
+
+Think of everything in terms of the observe → decide → act loop.
+
+⭐ Rationality (Classical Definition)
+Rational Agent
+
+A rational agent picks the action that maximizes expected value of its performance measure.
+
+It does this based on:
+
+what it has observed (percept sequence),
+
+what built-in knowledge it has,
+
+and the constraints of real-time compute + exploration.
+
+Rational ≠ Perfect
+
+Rational agents operate with incomplete info + limited compute.
+
+They learn to improve future actions.
+
+True autonomy = filling in gaps of prior knowledge.
+
+Example: a dung beetle follows rules but doesn’t adapt → not considered rational.
+
+⭐ Environments
+Task Environments
+
+The “problem setup” that agents act within.
+
+Classical AI uses PEAS to define the task environment.
+
+PEAS
+
+P — Performance measure
+
+E — Environment
+
+A — Actuators
+
+S — Sensors
+
+Framework for specifying what the agent is solving and how.
+
+⭐ From Classical Agents → LLM Agents
+
+The same theory still works — our environment is digital rather than physical.
+
+Everything we’ve built so far (chatbots, classifiers, NL→SQL pipelines) functions like a tiny agent:
+
+perceives the input text,
+
+decides what to do,
+
+acts via output or SQL.
+
+Adding feedback loops, memory, iterative planning starts turning these tools into agentic systems.
+
+⭐ Looking Ahead
+
+Lab 6 → Safe NL→SQL pipeline (non-agentic).
+
+Lab 7 → Add an agentic loop that reasons, tests, and improves.
+
+We should keep asking: What counts as a rational action for our app?
+
+Classical AI gives the foundation; modern agentic systems extend it.

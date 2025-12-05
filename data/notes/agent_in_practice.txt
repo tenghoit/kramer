@@ -1,0 +1,181 @@
+⭐ Today’s Objective
+
+Learn how to design a minimal, reliable agent you could actually build yourself.
+
+Understand the loop + guardrails + acceptance checks.
+
+Leave with a template → Agent Design Card.
+
+⭐ From Classical AI → LLM Agents
+
+Agent = goal-based, model-based, small-state problem solver.
+
+Loop: reason → act → observe → adjust.
+
+Modern LLM agents follow the same structure but operate digitally (SQL, APIs, etc.).
+
+⭐ PEAS for Our SQL Agent
+
+Performance: correctness, read-only safety, low latency.
+
+Environment: MySQL (RO), LLM, REPL, OS/network.
+
+Actuators: LLM calls + executing ONE SQL statement.
+
+Sensors: schema hints, preview rows, errors, validator.
+
+⭐ Minimal Agent Pattern
+
+Three roles: Planner → SQL Writer → Verifier.
+
+Only one safe SQL statement per turn.
+
+Iterates until accept / stop / cap (bounded loops).
+
+⭐ Minimal Loop in Practice
+
+Planner: proposes 1–3 steps.
+
+SQL Writer: emits exactly one SELECT using real schema.
+
+Executor: runs it, captures preview/errors/latency.
+
+Verifier: accepts, revises, or stops.
+
+If unreachable → agent says it can’t do it safely.
+
+⭐ Safety Envelope (Minimal)
+
+Read-only DB role + allowlist for single statements.
+
+Block DDL/DML.
+
+0.5s query timeout.
+
+Buffered cursor to avoid unread-result issues.
+
+Optional: upfront refusal of destructive goals.
+
+⭐ Knowledge Base & State
+
+KB = persistent store (long-term).
+
+State = short-term memory per iteration.
+
+Uses schema hints (information_schema).
+
+Stores last SQL, last errors, small preview.
+
+Role outputs are structured using Pydantic JSON.
+
+⭐ Demo — What to Watch
+
+Goal: meaning + required columns.
+
+Plan: does it propose sensible steps?
+
+SQL: one, read-only, real schema.
+
+Preview: should match what the goal implies.
+
+Verdict: accept vs revise vs stop.
+
+Time/latency awareness.
+
+(You saw three full examples: SQL books never ordered, customer spend totals, and books with >2 languages.)
+
+⭐ Important SQL Concepts Highlighted
+
+NOT EXISTS = anti-join logic (correct for “never ordered”).
+
+COALESCE = show 0 instead of NULL for totals.
+
+Group by the entity you’re measuring (titles, not surrogate IDs).
+
+Anti-patterns: NOT IN w/ NULLs, grouping by surrogate keys, empty previews accepted, etc.
+
+⭐ Agent Design Considerations
+
+“PRINT PRINT PRINT!”
+
+Show result first, then SQL, then reasoning steps.
+
+Make the loop transparent: Plan → SQL Writer → Verifier.
+
+Ensure outputs follow your three contracts…
+
+⭐ The Three Contracts (Framework)
+
+Goal Contract → schema for the ask (fields, types, examples).
+
+Tool Contract → allowable actions (1 SELECT, RO DB).
+
+Output Contract → checks: required columns, aliases, row expectations, GROUP BY correctness, etc.
+
+These contracts make the agent predictable + safe.
+
+⭐ Safety Envelope (Seatbelts)
+
+RO DB user
+
+1-statement validator
+
+Blocklist (UPDATE/DELETE/etc.)
+
+2s timeout
+
+Buffered cursor
+
+Live schema hints
+
+Low temperature
+
+Bounded iterations
+
+Logging + review
+
+Structured JSON goals
+
+⭐ Pitfalls & Fixes
+
+NOT IN + NULL → use NOT EXISTS
+
+Grouping by wrong key → group by natural key
+
+Accepting empty samples → tighten verifier rules
+
+Cursor issues → use buffered cursor
+
+⭐ Agent Design Card (Template)
+
+Problem title + 2 example goals
+
+PEAS for your environment
+
+Data access plan (schema fetching, metadata)
+
+Tools + safety rules
+
+Output contract (acceptance checks)
+
+Telemetry you’ll log (latency budget, errors)
+
+Can be the mini-capstone scaffold
+
+⭐ Acceptance Check Examples
+
+If goal says TOP-K → requires ORDER BY + LIMIT K.
+
+If goal implies rows exist → preview.size > 0.
+
+All required columns present + correct aliases.
+
+GROUP BY uses the actual entity measured.
+
+⭐ What’s Next
+
+Friday: short quiz on agent concepts + practicals.
+
+Turn in Project Proposal by Friday.
+
+Next: incorporating RAG into agentic design → then deployment tradeoffs → Practical Test 2.

@@ -1,0 +1,264 @@
+⭐ Announcements
+
+Final project proposals → meet with professor ASAP.
+
+Fallback options due Wednesday afternoon.
+
+Must have a clear plan by Thursday night.
+
+Calendar reminder: Practical Test 2 Wednesday, Quiz Friday, course wrap-up next week.
+
+⭐ The Plan (Prototype → Production)
+
+What changes when going from a demo to something real users depend on.
+
+Hosting choices matter: local vs. managed vs. hybrid.
+
+Safety should be the first layer (moderation, privacy, data handling).
+
+Must factor in latency, throughput, and budget.
+
+Think ahead about reliability: outages, rate limits, switching providers.
+
+Mini-case later where we pick a deployment strategy and defend it.
+
+⭐ Framing the Goal
+
+“Measure Twice, Cut Once.”
+
+Questions to clarify before building:
+
+What exactly are you building?
+
+Who is it for?
+
+Where will it run now, and where should it run soon?
+
+How big is “scale”? (users × requests per minute)
+
+What constraints matter: budget, privacy requirements, deadlines?
+
+What is the measurable definition of “done”?
+
+⭐ Deployment Menu
+Local (self-hosted)
+
+Pros: full control, privacy, predictable costs.
+
+Cons: operations burden, scaling is hard.
+
+Best for: small teams, local tools, offline use.
+
+Managed (hosted)
+
+Pros: easy to ship, scales well, high availability.
+
+Cons: token costs, rate limits, provider data policies.
+
+Best for: public-facing apps, spiky demand.
+
+Hybrid
+
+Combo of local + hosted.
+
+Keep sensitive data local; redact before sending out.
+
+Open-weight models can be hosted too.
+
+Best when scale + privacy both matter.
+
+⭐ Endpoints in Plain English
+
+Endpoints = “doors” that handle specific jobs (/chat, /embeddings, /moderations).
+
+When swapping providers, the main changes are: base URL, model name, auth key.
+
+The logic of the app (messages, prompts, structure) stays mostly the same.
+
+Always keep moderation in front as the first “door.”
+
+⭐ Provider Swaps: How They Work
+
+Add a small adapter like Chat.send(messages) to abstract provider differences.
+
+Adapter chooses provider, maps options, and applies limits.
+
+Use health checks → canary rollout → rollback switch.
+
+Log everything safely (no PII) so issues are debuggable.
+
+⭐ Canary Rollouts
+
+Release a new model/version to only a small % of traffic.
+
+Compare metrics (errors, policy flags, latency) to the current version.
+
+Auto-rollback if something crosses thresholds.
+
+Increase traffic gradually if healthy.
+
+⭐ Safety as a Hard Gate
+
+Moderation + privacy rules + logging for review.
+
+System must fail-closed, meaning if safety breaks, generation stops.
+
+Pre-screen everything:
+
+scrub secrets
+
+redact sensitive fields
+
+block prompt injections
+
+ignore attempts to change system rules
+
+allow-list tools/domains
+
+use read-only DB credentials
+
+sanity check token sizes and encoding
+
+⭐ Handling & Metrics
+
+If content is flagged → refuse safely, log it, escalate if needed.
+
+Maintain a tiny “gold set” to check moderation accuracy.
+
+Track % flagged, false positives/negatives, escalation rates.
+
+Never test policy boundaries with production keys.
+
+⭐ Backup: Policy Testing (Staging vs Production)
+
+Use separate environments + separate API keys.
+
+Red-team tests only in staging.
+
+Cap staging budgets.
+
+Mirror moderation pipelines across both environments.
+
+⭐ Backup: Release / Rollback Controls
+
+Pin specific model/version so upgrades aren’t silent.
+
+Canary + thresholds for safe rollout.
+
+Auto-rollback on violation.
+
+Feature flags and adapter switches → easy provider flip.
+
+Kill switch available if everything goes wrong.
+
+Track p95 latency, error rate, and flagged %.
+
+⭐ Performance & Cost (Back-of-Envelope)
+Token Cost
+
+total tokens ≈ input + output.
+
+Example: 2000 input + 300 output tokens.
+
+With prices ($0.50/M in, $1.50/M out) → ~ $0.00145 per call.
+
+Multiply by calls per day → budget expectations.
+
+Latency & Throughput
+
+Latency = roundtrip ms.
+
+Define p50 and p95 targets.
+
+Throughput = users × requests/min.
+
+Check against provider RPM and TPM limits.
+
+If over limits → queueing, caching, shrinking prompts.
+
+⭐ Reliability Playbook
+Handling Failure
+
+Rate limits/timeouts = normal, not exceptional.
+
+Use exponential backoff, retry only a couple times.
+
+Circuit breaker to avoid hammering unhealthy services.
+
+Graceful degradation: smaller prompts, cached answers, local fallback.
+
+Monitor p95 latency + error rate.
+
+Pin & Rollback
+
+Pin versions so upgrades don’t surprise you.
+
+Canary test before full release.
+
+One-switch rollback using adapter/flags.
+
+Kill switch returns a safe fallback message.
+
+⭐ Kill Switch
+
+Single toggle to disable generation instantly.
+
+App still responds, but with a safe fallback message.
+
+Triggered by: outage, bad outputs, spikes in flags, runaway cost.
+
+Logged + reviewed before re-enabling.
+
+⭐ Tiny Glossary
+
+Rate limit (429): hit provider quota; must pause and retry.
+
+Timeout: no reply in time; retry then fail fast.
+
+Exponential backoff: each retry waits longer (1s → 2s → 4s).
+
+Circuit breaker: stop calls temporarily after repeated failures; probe occasionally.
+
+⭐ Case Study: Registration RAG Helper
+
+Goal: answer course/registration questions from catalog and FAQs.
+
+Users: ~30 peak, 2–3 requests/min each.
+
+Target: p95 < 2s.
+
+Data: catalog is public; advising notes are private/read-only.
+
+Safety: moderation always on; fail-closed.
+
+Resources: Mac Studio (Ollama) + $100/semester API budget.
+
+Choose, Justify, Mitigate (class activity)
+
+Pick local / managed / hybrid.
+
+Give 3 justifications: capability, latency/cost, privacy.
+
+Identify one risk + mitigation.
+
+Sketch the safety pipeline.
+
+State fallback for provider issues (adapter? cache? circuit breaker?).
+
+⭐ Go / No-Go Checklist
+
+Safety gate built (input + output).
+
+Privacy basics handled (PII redaction, read-only DB).
+
+p95 latency + daily budget targets set.
+
+Rate-limit plan + circuit breaker ready.
+
+Monitoring live (errors, flagged %, p95).
+
+Rollback path established.
+
+⭐ Exit Ticket
+
+“Given our app, we’ll deploy [choice] because [reason]; main risk is [X], mitigated by [Y].”

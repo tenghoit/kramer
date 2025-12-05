@@ -1,0 +1,121 @@
+⭐ Tokens & Tokenization
+
+LLMs operate on tokens, not raw words or letters.
+
+Tokenizer breaks text into subword units: e.g., “Out walking!” → [out, walk, ing, !]
+
+Keeps vocabulary small (~50k tokens instead of millions of words).
+
+Tokens often align with morphemes, so they encode meaning-rich units.
+
+⭐ Positional Encoding
+
+Transformers process tokens in parallel, so they need a way to encode order.
+
+Positional embeddings give each token a sense of where it is in the sequence.
+
+⭐ Generating Text — The Basics
+
+Core task: predict the next token given context.
+
+Softmax turns scores → probabilities that sum to 1.
+
+Temperature controls creativity:
+
+low = deterministic,
+
+high = diverse/surprising.
+
+This is the foundation for all LLM text generation.
+
+⭐ Controlling Text Generation
+
+Top-k: restrict to the top k most likely next tokens.
+
+Top-p (nucleus): restrict to a dynamic probability mass threshold.
+
+Temperature + top-k + top-p shape creativity, style, and coherence.
+
+Used in chatbots, story generation, creative writing, etc.
+
+⭐ Attention — The Core Idea
+
+Predictions depend on context, not isolated tokens.
+
+Attention scores measure relevance between tokens.
+
+Example: “The cat ate because it was hungry.” → “it” should attend to “cat.”
+
+This is why Transformers outperform old sequential models.
+
+⭐ Context Handling & Self-Attention
+
+Meaning of a token changes based on surrounding tokens.
+
+Self-attention lets each token look at all other tokens.
+
+Modern models handle thousands of tokens → large context windows.
+
+⭐ Queries, Keys, Values
+
+Each token produces:
+
+Query → what am I looking for?
+
+Key → what information do I have?
+
+Value → the info actually carried.
+
+Matching queries to keys decides which values matter.
+
+⭐ Multi-Headed Attention
+
+Multiple heads let the model focus on different relationships at once.
+
+Example: one head handles semantic connections, another syntax.
+
+Heads run in parallel → combined for richer understanding.
+
+⭐ Fine-Tuning
+
+Adapt a pretrained model to a specific task.
+
+Saves compute + time by reusing base knowledge.
+
+Example: fine-tuned GPT for medicine, legal work, etc.
+
+⭐ RLHF (Reinforcement Learning w/ Human Feedback)
+
+Aligns model behavior with human preferences.
+
+Humans rank/comparatively score outputs → system learns policy rewarding “better” outputs.
+
+Used in models like ChatGPT to improve helpfulness + politeness.
+
+⭐ Applications
+
+Customer-service chatbots
+
+Tutoring systems
+
+Real-time translation
+
+Creative writing + brainstorming
+
+⭐ Limitations & Concerns
+
+Context window still limited.
+
+Hallucinations → confident but false answers.
+
+Bias baked into training data.
+
+Ethical issues: energy cost, misinformation, etc.
+
+⭐ Wrap-Up
+
+Transformers revolutionized AI via attention.
+
+GPT-style models build on this to generate and reason.
+
+Next time: connecting this architecture to agents and RAG.

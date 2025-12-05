@@ -5,6 +5,7 @@ import setup_logging
 from pathlib import Path
 import numpy as np
 import json
+from slide_chunker import chunkBySlide as ChunkBySlide
 from pydantic import BaseModel
 from text_extraction import extract_text, pptx_to_texts
 
@@ -234,7 +235,7 @@ def cmp(class_code: str, topic: str) -> list[dict]:
     return missing_lectures
 
 
-def generate_recommendation(note, missing_lectures) -> str:
+#def generate_recommendation(note, missing_lectures) -> str:
     
 
 
@@ -256,9 +257,17 @@ def embed_all_lectures():
     for file_path in file_paths:
         full_path = lectures_dir / file_path
         topic = topics[file_path]
-        for page, text in enumerate(pptx_to_texts(full_path)):
-            if is_content(topic=topic, text=text):
-                add_lecture(class_code, topic, page, text)
+
+        for raw_text in pptx_to_texts(full_path):
+            slide_chunks = ChunkBySlide(raw_text)
+        
+            for chunk in slide_chunks:
+                text = chunk["content"]
+                page = chunk["slide_number"]
+            
+                if is_content(topic=topic, text=text):
+                    add_lecture(class_code, topic, page, text)
+
 
         logger.debug(f"embedded {file_path}")
 
