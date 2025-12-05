@@ -235,7 +235,46 @@ def cmp(class_code: str, topic: str) -> list[dict]:
     return missing_lectures
 
 
-#def generate_recommendation(note, missing_lectures) -> str:
+def generate_recommendation(note: dict, missing_lectures: list[dict], model: str = "gemma3:12b") -> str:
+    note_text = note.get("text", "").strip()
+
+    if not missing_lectures:
+        return "Your notes cover the lecture content well. No missing areas detected."
+
+    missing_block = "\n\n---\n\n".join(
+        f"Slide {lec.get('page', '?')}:\n{lec.get('text', '').strip()}"
+        for lec in missing_lectures
+        if lec.get("text", "")
+    )
+
+    system_message = """
+    You are a teaching assistant reviewing a student's notes.
+    Identify what important concepts the student failed to include,
+    based on the provided lecture material.
+    Explain what they should add or review in a clear, concise way.
+    Do not rewrite full slides. Summarize the gaps.
+    """
+
+    user_prompt = f"""
+    STUDENT NOTES:
+    {note_text}
+
+    MISSING LECTURE CONTENT:
+    {missing_block}
+
+    Provide a helpful recommendation about what the student should add or review.
+    """
+
+    resp = ollama.chat(
+        model=model,
+        messages=[
+            {"role": "system", "content": system_message},
+            {"role": "user", "content": user_prompt}
+        ],
+        options={"temperature": 0.2}
+    )
+    print(resp["message"]["content"].strip())
+    return resp["message"]["content"].strip()
     
 
 
