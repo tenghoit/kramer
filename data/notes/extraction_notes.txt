@@ -1,0 +1,101 @@
+⭐ Why This Matters
+
+Pipeline: Unstructured text → structured JSON → validated data → SQL DB → LLM-powered apps.
+
+All modern RAG + agent systems rely on structured, validated data, not messy text.
+
+Lab 5 teaches extraction, validation, and storage.
+
+Lab 6 builds safe querying on top of that.
+
+Lab 7 adds agentic iteration.
+
+Basically: we are learning how an engineer designs how an LLM safely interacts with data.
+
+⭐ Structured Outputs from LLMs
+Version 1 — naïve text parsing
+
+Asking the model to “extract ticker + price: Paid $12.50 for AAPL.”
+
+Output varies wildly: "AAPL 12.50" vs words vs missing pieces.
+
+Lesson: natural language output is not machine-readable.
+
+Version 2 — ask for JSON
+
+Prompt includes something like:
+Return ONLY valid JSON: {"ticker":"AAPL","price":12.50}
+
+Temperature set to 0.0 for determinism.
+
+Better… but still fragile: missing commas, missing quotes, code fences.
+
+Version 3 — structured outputs + validation
+
+Define a schema using a Python class extending Pydantic BaseModel.
+
+Call the model with schema enforcement.
+
+Pydantic:
+
+verifies types & constraints
+
+tries to coerce minor errors
+
+otherwise triggers re-ask or human review
+
+Takeaway: Structured outputs + schema validation = unit tests baked into the pipeline.
+
+⭐ Bridge Concepts
+
+From before: CSV cleaning, regex, Pandas, type hints.
+
+New: JSON validation, schema-guided parsing, SQL tables, runtime validation.
+
+⭐ Databases and SQL
+
+PostgreSQL tables = strongly typed containers for validated JSON objects.
+
+We insert the cleaned + validated records into tables like sections, courses, etc.
+
+Later (Lab 6): add embeddings + safe SQL generation.
+
+⭐ Lab 5 Walkthrough
+Task 1: Ingest the Schedule
+
+Parse each line of the schedule into validated JSON (SectionSchema).
+
+Command example:
+python3 src/lab5_task1_ingest_sections.py --program DSC --limit 5 --dry-run --verbose --temp 0.0
+
+Focus: preview + validation pipeline working end-to-end.
+
+Task 2: Prerequisite Logic
+
+Convert text like:
+“DSC 230 or permission of instructor”
+→ {"dnf":[["DSC230"],["permission"]]}
+
+LLM step ensures consistent AND/OR structure.
+
+Normalize: uppercase course codes, consistent JSON.
+
+Run via:
+lab5_task2_prereqs.py with similar flags.
+
+Task 3: Semantic Enrichment
+
+Extract skills, modalities, and audience from course descriptions.
+
+Ensure every row has something → backfill defaults.
+
+Validated output again (schema + LLM normalization).
+
+Run via:
+lab5_task3_enrich_descriptions.py --program DSC --limit 5 --dry-run --verbose --temp 0.0
+
+⭐ Wednesday Preview
+
+Safety + reliability: engineers design safe failure modes.
+
+Systems must be able to: recover, log, or reject invalid outputs.

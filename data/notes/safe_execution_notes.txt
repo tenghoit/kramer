@@ -1,0 +1,131 @@
+⭐ Why Safe Execution Matters
+
+We’re moving from validated data → actual actions taken by the model.
+
+Earlier: the model just produced text → we inspected it.
+
+Now: the model may run SQL, call APIs, update data, etc.
+
+A single wrong command can delete data, leak private info, or corrupt a system.
+
+So execution must be treated as a danger zone requiring layers of control.
+
+⭐ Structured Extraction Pipeline (Quick Review)
+
+Goal: turn messy text → validated, structured JSON → database.
+
+Typical pipeline:
+unstructured → JSON → schema validation (Pydantic) → cleaned record.
+
+Validators fix formatting, enforce types, and normalize.
+
+Validated JSON = source of truth.
+
+Takeaway: never trust raw model output — must validate & evaluate (exact match).
+
+⭐ From Generation → Execution
+
+Once your chatbot can run SQL/API calls, things get risky.
+
+It’s not just about correct syntax anymore — it’s about behavior.
+
+Execution means the model can actually affect the world.
+
+⭐ Prompt Injection
+
+Natural language becomes an attack surface.
+
+Examples:
+harmless prompts (“show courses taught by Dr. B”)
+vs. malicious (“ignore previous instructions,” “drop all tables”).
+
+Analogy: prompt injection ≈ SQL injection but at the NL layer.
+
+Why it works:
+
+LLMs follow whoever speaks last,
+
+blending context lets malicious text hijack control,
+
+even innocent copy/paste may hide harmful signals.
+
+⭐ Discussion Question
+
+If the LLM doesn’t inherently know what’s safe, who decides what's allowed?
+
+Answer → the engineer, via guardrails, validation, and restricted execution.
+
+⭐ Integrity, Security, Reliability
+
+Even “read-only” queries can leak data.
+
+Safety is not just preventing writes; it’s also about limiting exposure.
+
+Trust can’t be assumed just because a query looks harmless.
+
+⭐ Validating Queries (Before Execution)
+
+Critical because models hallucinate columns, joins, tables, semantics.
+
+Even plausible-looking queries can be completely wrong or risky.
+
+Ambiguous prompts → model drifts to a different question.
+
+Validation ≠ correctness check — it’s risk control.
+
+⭐ Layers of Validation
+
+Must check:
+
+syntax
+
+semantics
+
+intent
+
+The most dangerous failures are the “plausible but wrong” ones.
+
+⭐ Designing the Safety Envelope
+
+Safety envelope defines what the model is allowed to do.
+
+Restricts queries/files/APIs the agent can touch.
+
+Typical components:
+
+sanitize all input
+
+validate syntax and semantics
+
+restrict execution (read-only or allow-listed)
+
+log everything for accountability
+
+Main idea: multiple layers of control > single safeguard.
+
+⭐ Human in the Loop
+
+Used for reviewing or approving edge-case or risky operations.
+
+New or unfamiliar query types can be paused for inspection.
+
+Systems should assume the model will make mistakes → humans catch them.
+
+⭐ When Models Act
+
+Once a model can execute stuff, every output is a decision.
+
+Responsibility is shared between:
+
+the model (generation),
+
+the system (limits + guardrails),
+
+the human (oversight + approvals).
+
+A robust design clarifies how these responsibilities divide.
+
+⭐ Main Takeaway
+
+Engineering replaces trust with structure.
+We don’t “trust” models — we enforce rules, validations, restrictions, and oversight.
