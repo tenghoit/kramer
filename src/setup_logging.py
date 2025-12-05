@@ -11,14 +11,14 @@ def setup_logging(log_name: str | None = None) -> None:
     """
     if log_name is None:
         log_name = datetime.datetime.now().strftime("%Y%m%d.log")
-    log_path = Path("logs") / log_name
+    log_path = Path(__file__).resolve().parents[1] / "logs" / log_name
     log_path.parent.mkdir(parents=True, exist_ok=True)
     logging.basicConfig(
         level=logging.WARNING,
         format="%(asctime)s:%(levelname)s:%(funcName)s: %(message)s",
         datefmt="%H:%M:%S",
         handlers=[
-            # logging.FileHandler(log_path), 
+            logging.FileHandler(log_path), 
             logging.StreamHandler() # log to console
         ]
     )

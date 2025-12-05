@@ -234,6 +234,10 @@ def cmp(class_code: str, topic: str) -> list[dict]:
     return missing_lectures
 
 
+def generate_recommendation(note, missing_lectures) -> str:
+    
+
+
 def embed_all_lectures():
     lectures_dir = Path(__file__).resolve().parents[1] / "data/lectures/"
     class_code = "dsc360"
@@ -259,10 +263,12 @@ def embed_all_lectures():
         logger.debug(f"embedded {file_path}")
 
 
+
+
 def main():
     clear_db()
     embed_all_lectures()
-    
+
 
 if __name__ == "__main__":
     main()
