@@ -10,6 +10,7 @@ import json
 from slide_chunker import chunkBySlide as ChunkBySlide
 from pydantic import BaseModel
 from text_extraction import extract_text, pptx_to_texts
+import time
 
 
 logger = logging.getLogger(__name__)
@@ -267,6 +268,7 @@ def generate_recommendation(note: dict, missing_lectures: list[dict], model: str
     Provide a helpful recommendation about what the student should add or review.
     """
 
+    start_time = time.time()
     resp = ollama.chat(
         model=model,
         messages=[
@@ -277,6 +279,8 @@ def generate_recommendation(note: dict, missing_lectures: list[dict], model: str
     )
     # print(resp["message"]["content"].strip())
     recommendation = resp["message"]["content"].strip()
+    end_time = time.time()
+    logger.debug(f"{model} took {end_time - start_time}")
     logger.debug(f"Recommendation: {recommendation}")
     return recommendation
     
@@ -483,7 +487,7 @@ def run_pipeline(class_code, topic):
     logger.debug(f"comparing {class_code} {topic} notes")
     missing = cmp(class_code, topic)
     note = query_notes(class_code=class_code, topic=topic)
-    recommendation = generate_recommendation(note, missing)
+    recommendation = generate_recommendation(note, missing, "gemma3:4b")
     print(recommendation)
 
     
