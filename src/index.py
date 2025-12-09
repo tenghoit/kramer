@@ -317,7 +317,6 @@ def embed_all_lectures():
 
 
 def embed_notes():
-    clear_notes()
     notes_dir = Path(__file__).resolve().parents[1] / "data/notes/"
     class_code = "dsc360"
 
@@ -331,13 +330,20 @@ def embed_notes():
         "rag_revisited_notes.txt": "rag",
         "what_is_agent_notes.txt": "agent",
     }
-    file_paths = list(topics.keys())
-    for file_path in file_paths:
-        full_path = notes_dir / file_path
-        topic = topics[file_path]
-        text = extract_text(full_path)
-        add_note(class_code=class_code, topic=topic, text=text)
-        logger.debug(f"Added [{file_path}] to notes")
+    # file_paths = list(topics.keys())
+    # for file_path in file_paths:
+    #     full_path = notes_dir / file_path
+    #     topic = topics[file_path]
+    #     text = extract_text(full_path)
+    #     add_note(class_code=class_code, topic=topic, text=text)
+    #     logger.debug(f"Added [{file_path}] to notes")
+
+    file_path = "Trandsformer_architecture.txt"
+    full_path = notes_dir / file_path
+    topic = topics[file_path]
+    text = extract_text(full_path)
+    add_note(class_code=class_code, topic=topic, text=text)
+    logger.debug(f"Added [{file_path}] to notes")
 
 
 def main():
@@ -482,7 +488,8 @@ def run_pipeline(class_code, topic):
 
     
 if __name__ == "__main__":
-    run_pipeline(class_code="dsc360", topic="rag")
+    # embed_notes()
+    run_pipeline(class_code="dsc360", topic="transformer architecture")
 
 
 

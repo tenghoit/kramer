@@ -610,3 +610,77 @@ By adding these points, your notes will provide a more complete understanding of
 
 
 By addressing these points, you're RAG notes will be much more comprehensive.
+16:33:17:DEBUG:clear_notes: notes cleared
+16:36:05:DEBUG:get_keywords: Keywords: ['LLMs', 'Tokens', 'Tokenizer', 'Positional Encoding', 'Transformers', 'Next-Token Prediction', 'Softmax', 'Temperature', 'Top-k Sampling', 'Top-p Sampling', 'Attention', 'Queries', 'Keys', 'Values', 'Self-Attention', 'Multi-Headed Attention', 'Fine-Tuning', 'RLHF', 'Shoggoth', 'Context Window', 'Hallucinations', 'Bias', 'RAG', 'Agents']
+16:36:09:DEBUG:add_note: dsc360 transformer architecture notes added.
+16:36:09:DEBUG:embed_notes: Added [Trandsformer_architecture.txt] to notes
+16:36:49:DEBUG:run_pipeline: comparing dsc360 transformer architecture notes
+16:36:49:DEBUG:cmp: 0.768345194786075
+16:36:49:DEBUG:cmp: 0.7194283051091924
+16:36:49:DEBUG:cmp: 0.6882782496856318
+16:36:49:DEBUG:cmp: 0.6338850424279917
+16:36:49:DEBUG:cmp: 0.6332043360931525
+16:36:49:DEBUG:cmp: 0.6914937931360451
+16:36:49:DEBUG:cmp: 0.6633955462413851
+16:36:49:DEBUG:cmp: 0.6609820775366514
+16:36:49:DEBUG:cmp: 0.6662635019149674
+16:36:49:DEBUG:cmp: 0.5954437846832354
+16:36:49:DEBUG:cmp: 0.5823878023737742
+16:36:49:DEBUG:cmp: 0.5331580621911979
+16:36:49:DEBUG:cmp: 0.6701575820091284
+16:36:49:DEBUG:cmp: 0.5343314356651484
+16:36:49:DEBUG:cmp: 0.6668027179561616
+16:39:24:DEBUG:generate_recommendation: Recommendation: Okay, here's a breakdown of what's missing from your notes and what you should review. You're off to a good start, but there are some key areas where your understanding seems incomplete.
+
+**Overall Impression:** Your notes capture the *what* of many concepts (what tokens are, what attention does, etc.), but they lack depth in explaining *how* these things work and *why* they are important.
+
+**Specific Gaps & Recommendations:**
+
+1.  **Multi-Headed Attention - Deeper Dive:** You mention multi-headed attention, but you're missing the core explanation of *how* it works. **Review Slides 18 & 19.** Focus on understanding:
+    *   **The "Split" Process:** How queries, keys, and values are divided into separate "heads."
+    *   **Independent Processing:** That each head learns different relationships (syntax, semantics, etc.) *independently*.
+    *   **Combination:** How the outputs from each head are merged to create a richer, more comprehensive representation. The example on slide 18 is crucial for understanding this.
+
+2.  **Fine-Tuning - More Detail:** You mention fine-tuning, but the explanation is very brief. **Review Slide 20.** Understand that fine-tuning isn't just "training further." It's about *adapting* a model already proficient in general language to a *specific* task or domain. This involves a smaller dataset and targeted training.
+
+3.  **Applications - Expanded Examples:** While you list applications, adding more specific examples within each category would strengthen your understanding. For example, under "Creative Writing," you could mention specific tools or use cases (e.g., generating marketing copy, writing different creative text formats like poems, code, scripts, musical pieces, email, letters, etc.).
+
+
+
+By focusing on these areas, you're going to build a much more robust understanding of Transformers and LLMs. Good luck!
+16:41:35:DEBUG:run_pipeline: comparing dsc360 transformer architecture notes
+16:43:25:DEBUG:get_keywords: Keywords: ['LLMs', 'Tokens', 'Tokenizer', 'Positional Encoding', 'Transformers', 'Next-Token Prediction', 'Softmax', 'Temperature', 'Top-k Sampling', 'Top-p Sampling', 'Attention', 'Queries', 'Keys', 'Values', 'Self-Attention', 'Multi-Headed Attention', 'Fine-Tuning', 'RLHF', 'Shoggoth', 'Context Window', 'Hallucinations', 'Bias', 'RAG', 'Agents']
+16:43:29:DEBUG:add_note: dsc360 transformer architecture notes added.
+16:43:29:DEBUG:embed_notes: Added [Trandsformer_architecture.txt] to notes
+16:43:59:DEBUG:run_pipeline: comparing dsc360 transformer architecture notes
+16:43:59:DEBUG:cmp: 0.768345194786075
+16:43:59:DEBUG:cmp: 0.7194283051091924
+16:43:59:DEBUG:cmp: 0.6882782496856318
+16:43:59:DEBUG:cmp: 0.6338850424279917
+16:43:59:DEBUG:cmp: 0.6332043360931525
+16:43:59:DEBUG:cmp: 0.6914937931360451
+16:43:59:DEBUG:cmp: 0.6633955462413851
+16:43:59:DEBUG:cmp: 0.6609820775366514
+16:43:59:DEBUG:cmp: 0.6662635019149674
+16:43:59:DEBUG:cmp: 0.5954437846832354
+16:43:59:DEBUG:cmp: 0.5823878023737742
+16:43:59:DEBUG:cmp: 0.5331580621911979
+16:43:59:DEBUG:cmp: 0.6701575820091284
+16:43:59:DEBUG:cmp: 0.5343314356651484
+16:43:59:DEBUG:cmp: 0.6668027179561616
+16:46:38:DEBUG:generate_recommendation: Recommendation: Okay, here's a breakdown of what's missing from your notes and what you should review. You're off to a good start, but there are some key areas where your understanding seems incomplete.
+
+**Overall Impression:** Your notes capture the high-level concepts well, but lack detail in explaining *how* some of these mechanisms work and *why* they are so important. You're describing *what* is happening, but not enough about *how* and *why*.
+
+**Specific Gaps & Recommendations:**
+
+1.  **Multi-Headed Attention - Deeper Dive:** You mention multi-headed attention, but your notes don's fully explain *how* it works.
+    *   **What to Add/Review:** You need to understand the "Split, Independent Processing, Combine" steps. Specifically, how queries, keys, and values are split into different "subspaces" for each head, and how the results are combined. The example on Slide 18 (semantic link vs. syntactic structure) is crucial for understanding the benefit. Review the slides that illustrate this process visually.
+2.  **Fine-Tuning - More Detail:** You mention fine-tuning, but don't explain the process in enough detail.
+    *   **What to Add/Review:** Review the slide that explains the process of taking a pre-trained model and training it further on a specific dataset. Understand *why* this is more efficient than training from scratch. Consider adding a sentence or two about the types of datasets used for fine-tuning (e.g., domain-specific text corpora).
+3.  **Applications - Expand:** While you list applications, the descriptions are brief.
+    *   **What to Add/Review:** Briefly elaborate on *how* Transformers are used in each application. For example, in translation, mention the encoder-decoder architecture (even if you didn't cover it in detail). For creative writing, mention how temperature and top-p sampling are used to control the output.
+
+
+
+By addressing these gaps, you're notes will provide a much more complete and useful overview of Transformer models.
