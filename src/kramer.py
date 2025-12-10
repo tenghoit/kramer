@@ -119,6 +119,7 @@ def add_lecture(class_code: str, topic: str, page: int, text: str):
     with open(lectures_path, "w") as f:
         json.dump(lectures, f, indent=4)
     logger.debug(f"{class_code} {topic} page {page} lecture added.")
+    
 
 
 def query_lectures(class_code: str, topic: str) -> list[dict]:
@@ -373,7 +374,7 @@ def main():
     embed_notes()
 
 def cli():
-    parser = argparse.ArgumentParser(prog="notes-agent", description="Compare lecture slides to student notes and generate recommendations.")
+    parser = argparse.ArgumentParser(prog="kramer", description="Compare lecture slides to student notes and generate recommendations.")
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     p_init = subparsers.add_parser("init-db", help="Clear DB and embed all lectures.")
@@ -401,6 +402,12 @@ def cli():
 
     p_show_lectures = subparsers.add_parser("show-lectures", help="Shows lectures")
     p_show_lectures.set_defaults(func=show_lectures)
+
+    p_add_lecture = subparsers.add_parser("add-lecture", help="Add lecture for a class and topic")
+    p_add_lecture.add_argument("class_code", type=str)
+    p_add_lecture.add_argument("topic", type=str)
+    p_add_lecture.add_argument("--file", type=str, help="filepath of lecture.")
+    p_add_lecture.set_defaults(func=cmd_add_lecture)
 
     p_slide = subparsers.add_parser("add-slide", help="Add a single lecture slide chunk manually.")
     p_slide.add_argument("class_code", type=str)
@@ -437,6 +444,16 @@ def cmd_add_note(args):
 
     add_note(class_code, topic, text)
     print(f"Added note for {class_code} {topic}.")
+
+
+def cmd_add_lecture(args):
+    class_code = args.class_code
+    topic = args.topic
+    lectures_dir = Path(__file__).resolve().parents[1] / "data/lectures/"
+    full_path = lectures_dir / args.file
+    for i, chunk in enumerate(pptx_to_texts(full_path)):
+        if is_content(topic=topic, text=chunk): add_lecture(class_code=class_code, topic=topic, page=i, text=chunk)
+
 
 
 def cmd_compare(args):
