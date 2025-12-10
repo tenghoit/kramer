@@ -18,7 +18,7 @@ def setup_logging(log_name: str | None = None) -> None:
         datefmt="%H:%M:%S",
         handlers=[
             logging.FileHandler(log_path), 
-            logging.StreamHandler() # log to console
+            # logging.StreamHandler() # log to console
         ]
     )
 

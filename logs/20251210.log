@@ -1,0 +1,84 @@
+12:32:06:DEBUG:cmp: 0.7507126624068097
+12:32:06:DEBUG:cmp: 0.8083337253556112
+12:32:06:DEBUG:cmp: 0.5249794203397298
+12:32:06:DEBUG:cmp: 0.6437602232467963
+12:32:06:DEBUG:cmp: 0.7093431265188841
+12:32:06:DEBUG:cmp: 0.5912743644641226
+12:32:06:DEBUG:cmp: 0.5861609623808791
+12:32:06:DEBUG:cmp: 0.43505337784749204
+12:32:06:DEBUG:cmp: 0.6366893968654599
+12:32:06:DEBUG:cmp: 0.669810862977932
+12:32:06:DEBUG:cmp: 0.6171293790781456
+12:32:06:DEBUG:cmp: 0.41263538602463057
+12:32:06:DEBUG:cmp: 0.5992014615744163
+12:32:06:DEBUG:cmp: 0.46094798925819613
+12:32:06:DEBUG:cmp: 7 lectures below threshold
+12:34:44:DEBUG:generate_recommendation: gemma3:12b took 158.4061188697815
+12:34:44:DEBUG:generate_recommendation: Recommendation: Okay, here's a breakdown of what's missing from your notes and what you should review. You're capturing the *what* well, but need to flesh out the *how* and *why* behind some key concepts.
+
+**Major Gaps & Recommendations:**
+
+1.  **Code Examples for Version 1 (Slide 5):** You mention the initial naive string parsing was inconsistent. Your notes *need* to include the actual code snippet used to call the LLM in this version (like the `resp = chat(...)` example shown in the lecture). This is crucial for understanding the baseline problem.
+2.  **Pydantic Schema Definition (Slide 8):** You mention defining a schema with Pydantic, but you don't show *what* that schema looks like. You need to add an example of a `BaseModel` definition (e.g., `class SectionSchema(BaseModel: ...)` with fields and their types). This is the core of structured output and validation.
+3.  **Detailed Steps of Schema Enforcement (Slides 2 & 9):** You list the steps (define schema, call model, recover from errors), but don't explain *how* the model call is structured to enforce the schema.  You need to add details about how the schema is passed to the LLM and how the validation process works.
+4.  **Error Recovery Details (Slide 10):** You mention "trying to recover from minor errors," but don't explain *how* this happens.  Does Pydantic have built-in coercion? What are the re-ask or human review triggers?
+5.  **More Context on "Safe Failure Modes" (Slide 23):** You mention engineers design safe failure modes. Expand on this. What does "recover," "log," and "reject" *mean* in a practical sense within this pipeline? What are some examples of how these actions would be implemented?
+
+
+
+**To help you review, focus on these questions:**
+
+*   **Why are natural language outputs problematic?** (Beyond just "inconsistent") Think about the implications for data integrity and downstream processes.
+*   **What is the purpose of a schema?** How does it constrain the LLM's output and improve reliability?
+*   **How does Pydantic contribute to data validation?** What are its key features and benefits?
+*   **What are the trade-offs between different error handling strategies?**
+12:36:59:DEBUG:cmp: 0.7507126624068097
+12:36:59:DEBUG:cmp: 0.8083337253556112
+12:36:59:DEBUG:cmp: 0.5249794203397298
+12:36:59:DEBUG:cmp: 0.6437602232467963
+12:36:59:DEBUG:cmp: 0.7093431265188841
+12:36:59:DEBUG:cmp: 0.5912743644641226
+12:36:59:DEBUG:cmp: 0.5861609623808791
+12:36:59:DEBUG:cmp: 0.43505337784749204
+12:36:59:DEBUG:cmp: 0.6366893968654599
+12:36:59:DEBUG:cmp: 0.669810862977932
+12:36:59:DEBUG:cmp: 0.6171293790781456
+12:36:59:DEBUG:cmp: 0.41263538602463057
+12:36:59:DEBUG:cmp: 0.5992014615744163
+12:36:59:DEBUG:cmp: 0.46094798925819613
+12:36:59:DEBUG:cmp: 7 lectures below threshold
+12:39:59:DEBUG:generate_recommendation: gemma3:12b took 179.89438915252686
+12:39:59:DEBUG:generate_recommendation: Recommendation: Okay, here's a breakdown of what's missing from your notes and what you should review. You're on the right track, but there are some key details that will help you understand the bigger picture.
+
+**Overall Impression:** Your notes capture the *what* (the pipeline, the tasks), but lack some of the *why* and the specific steps involved in the more advanced techniques.
+
+**Here's what's missing, categorized by topic:**
+
+**1. Version 2 (JSON Output) - Missing Code Example & Explanation:**
+
+*   **What's Missing:** The student notes mention asking for JSON, but omit the crucial code snippet demonstrating this. The original slide showed a code example of the `chat` function call with the prompt requesting JSON.
+*   **What to Review:** Go back to the slide and understand how the prompt is structured to request JSON output. Pay attention to the specific wording used.
+
+**2. Pydantic & Schema Enforcement - Missing Steps:**
+
+*   **What's Missing:** While you mention Pydantic, the notes skip over the crucial steps of *defining* the schema (the Python class) and *how* the model call is modified to enforce it. The slides showed a step-by-step breakdown of this process.
+*   **What to Review:** Review the slides detailing how to define a Pydantic schema (the class extending `BaseModel`) and how to integrate it into the model call. Understand how this schema dictates the expected output format and data types.
+
+**3. Error Recovery - Missing Explanation:**
+
+*   **What's Missing:** The notes mention that Pydantic "tries to coerce minor errors," but don't explain *how* this happens or what the different recovery strategies are (re-ask, human review).
+*   **What to Review:** The slides explained that Pydantic attempts to automatically correct minor errors (like missing quotes or commas). If it can't, it triggers a re-ask to the LLM or flags the record for human review.
+
+**4. Task 2 & 3 - Missing LLM Call Details:**
+
+*   **What's Missing:** The notes mention the goals of Task 2 (prerequisite logic) and Task 3 (semantic enrichment), but omit the actual LLM calls used to achieve these goals.
+*   **What to Review:** Review the slides to see the specific prompts used for these tasks. Pay attention to how the prompts are structured to elicit the desired information and format.
+
+**5. Safety and Reliability - Missing Details:**
+
+*   **What's Missing:** The notes mention safe failure modes, but don's elaborate on the specific mechanisms for recovery, logging, or rejection.
+*   **What to Review:** Review the slides to understand the different strategies for handling invalid outputs, such as logging errors, retrying the LLM call, or rejecting the record entirely.
+
+
+
+By addressing these gaps, you'll have a much more complete understanding of the material. Good luck!
