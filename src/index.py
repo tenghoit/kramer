@@ -235,6 +235,7 @@ def cmp(class_code: str, topic: str) -> list[dict]:
         if cosine_similarity < threshold:
             missing_lectures.append(lecture)
 
+    logger.debug(f"{len(missing_lectures)} lectures below threshold")
     return missing_lectures
 
 
@@ -493,9 +494,8 @@ def run_pipeline(class_code, topic):
     
 if __name__ == "__main__":
     # embed_notes()
-    run_pipeline(class_code="dsc360", topic="transformer architecture")
+    cmp_all_notes()
 
 
 
 
-    
