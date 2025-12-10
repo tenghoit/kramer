@@ -20,6 +20,7 @@ db_dir = Path('db')
 notes_path = db_dir / "notes.json"
 lectures_path = db_dir / "lectures.json"
 
+
 def normalize(vector):
     norm = np.linalg.norm(vector)
     if norm > 0:
@@ -41,6 +42,12 @@ def get_notes() -> list[dict]:
 
 
 notes = get_notes()
+
+
+def show_notes(args):
+    print(f"Notes (class_code, topic)")
+    for note in notes:
+        print(f" * {note["class_code"]} - {note["topic"]}")
 
 
 def add_note(class_code: str, topic: str, text: str):
@@ -82,6 +89,17 @@ def get_lectures() -> list[dict]:
 
 
 lectures = get_lectures()
+
+
+def show_lectures(args):
+    print(f"Lectures (class_code, topic)")
+    unique_lectures = []
+    for lecture in lectures:
+        text = f" * {lecture["class_code"]} - {lecture["topic"]}"
+        if text not in unique_lectures: unique_lectures.append(text)
+
+    for item in unique_lectures:
+        print(item)
 
 
 def add_lecture(class_code: str, topic: str, page: int, text: str):
@@ -361,6 +379,9 @@ def cli():
     p_init = subparsers.add_parser("init-db", help="Clear DB and embed all lectures.")
     p_init.set_defaults(func=cmd_init_db)
 
+    p_show_notes = subparsers.add_parser("show-notes", help="Shows notes")
+    p_show_notes.set_defaults(func=show_notes)
+
     p_add = subparsers.add_parser("add-note", help="Add a note for a class and topic.")
     p_add.add_argument("class_code", type=str)
     p_add.add_argument("topic", type=str)
@@ -377,6 +398,9 @@ def cli():
     p_rec.add_argument("class_code", type=str)
     p_rec.add_argument("topic", type=str)
     p_rec.set_defaults(func=cmd_recommend)
+
+    p_show_lectures = subparsers.add_parser("show-lectures", help="Shows lectures")
+    p_show_lectures.set_defaults(func=show_lectures)
 
     p_slide = subparsers.add_parser("add-slide", help="Add a single lecture slide chunk manually.")
     p_slide.add_argument("class_code", type=str)
@@ -454,6 +478,7 @@ def cmd_recommend(args):
     rec = generate_recommendation(note, missing)
     print(rec)
 
+
 def cmd_add_slide(args):
     class_code = args.class_code
     topic = args.topic
@@ -493,8 +518,8 @@ def run_pipeline(class_code, topic):
 
     
 if __name__ == "__main__":
-    # embed_notes()
-    cmp_all_notes()
+    cli()
+    
 
 
 
